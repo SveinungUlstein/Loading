@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1e3f51c2-c058-4dd1-b8b1-1b3c5576947d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/exambackendthing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/9/49cac07e28347c42b4d2b0672f2cbde8f8c6e9ca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/3/535551f7dd6fe8c4d5a65ae376e9dfe37c70614c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/5/5560f1d02b5e7d25817c21f849c4c3429f391d38" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/6/666eaaa0294d90f5dc3699d0a880af7e87e494f0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/a/7a8ecbf245d92e621b9c520a7b9d562ccc660a10" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/85eed61113e0580af01610c1ed5865381424bfb3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/2/b2dedfaecba295966f93953d6b787422caa45d50" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/3/f35b3a119de3c0d101e3be1ea9c9b5dd341ae02e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/8/f8e125287ef77107423d4a2d11b9afeeff93feec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/9/49cac07e28347c42b4d2b0672f2cbde8f8c6e9ca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/3/535551f7dd6fe8c4d5a65ae376e9dfe37c70614c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/5/5560f1d02b5e7d25817c21f849c4c3429f391d38" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/6/666eaaa0294d90f5dc3699d0a880af7e87e494f0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/a/7a8ecbf245d92e621b9c520a7b9d562ccc660a10" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/5/85eed61113e0580af01610c1ed5865381424bfb3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/2/b2dedfaecba295966f93953d6b787422caa45d50" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/3/f35b3a119de3c0d101e3be1ea9c9b5dd341ae02e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/8/f8e125287ef77107423d4a2d11b9afeeff93feec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoadingApp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/0/d/0de3be0438106f71347dbfb6a119fa8edf0e52b5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/1/0/10cb92cafb9c81c500fef9b583f744a5b9792399" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/1/6/16870ee6940f1946474f6680b014bbd1152c0062" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/1/a/1a273f73b7a477b0745593641bd708a6182c7ad5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/3/a/3a63f55d7688dab8f8ef581577753cc43ef54544" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/4/4/44abf6b96274da30c6f7f22ac26409eca5dc50a1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/4/4/44ba900efff436bc22134f67c39eee3df6709552" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/6/1/6157e7f1b821cce8571ee92f0d1ea50724dad9f4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/6/e/6ec1eabc656d79e975e139317cee5bd08b6e4731" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/8/6/86329223ec7722f5bd0aaac1c3506b824cd88c04" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/9/0/90d251473f73414457027b4b578f855a49139185" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/9/4/94e22011426c6a98f95e2f1d57ed830ceb6f2646" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/e/4/e4aa143ba38d87255bcf5a543980157cf56a1b00" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/0/d/0de3be0438106f71347dbfb6a119fa8edf0e52b5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/1/0/10cb92cafb9c81c500fef9b583f744a5b9792399" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/1/6/16870ee6940f1946474f6680b014bbd1152c0062" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/1/a/1a273f73b7a477b0745593641bd708a6182c7ad5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/3/a/3a63f55d7688dab8f8ef581577753cc43ef54544" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/4/4/44abf6b96274da30c6f7f22ac26409eca5dc50a1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/4/4/44ba900efff436bc22134f67c39eee3df6709552" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/6/1/6157e7f1b821cce8571ee92f0d1ea50724dad9f4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/6/e/6ec1eabc656d79e975e139317cee5bd08b6e4731" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/8/6/86329223ec7722f5bd0aaac1c3506b824cd88c04" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/9/0/90d251473f73414457027b4b578f855a49139185" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/9/4/94e22011426c6a98f95e2f1d57ed830ceb6f2646" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/e/4/e4aa143ba38d87255bcf5a543980157cf56a1b00" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/MyQRCode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/main/java/com/example/gameroomapi/GameRoomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/main/java/com/example/gameroomapi/GameRoomEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/main/java/com/example/gameroomapi/GameRoomRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/main/java/com/example/gameroomapi/GameRoomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/main/java/com/example/gameroomapi/GameroomApiApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/main/java/com/example/gameroomapi/QrCodeGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/src/test/java/com/example/gameroomapi/GameroomApiApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/classes/com/example/gameroomapi/GameRoomController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/classes/com/example/gameroomapi/GameRoomEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/classes/com/example/gameroomapi/GameRoomRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/classes/com/example/gameroomapi/GameRoomService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/classes/com/example/gameroomapi/GameroomApiApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/classes/com/example/gameroomapi/QrCodeGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/gameroomAPI-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/surefire-reports/TEST-com.example.gameroomapi.GameroomApiApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/surefire-reports/com.example.gameroomapi.GameroomApiApplicationTests.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gameroomAPI/target/test-classes/com/example/gameroomapi/GameroomApiApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2h5uLZcOeX99TtitF1pLFSHVhii" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "benjamin",
+    "last_opened_file_path": "C:/Users/benja/IdeaProjects/exambackendthing",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="GameroomApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="gameroomAPI" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gameroomapi.GameroomApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1e3f51c2-c058-4dd1-b8b1-1b3c5576947d" name="Changes" comment="" />
+      <created>1716896204027</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716896204027</updated>
+      <workItem from="1716896205029" duration="1276000" />
+      <workItem from="1716913792303" duration="1504000" />
+      <workItem from="1716998430979" duration="266000" />
+      <workItem from="1717005221141" duration="2969000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

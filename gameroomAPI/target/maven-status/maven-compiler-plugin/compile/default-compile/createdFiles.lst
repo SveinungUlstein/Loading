@@ -1,0 +1,6 @@
+com\example\gameroomapi\GameRoomRepository.class
+com\example\gameroomapi\GameRoomController.class
+com\example\gameroomapi\GameroomApiApplication.class
+com\example\gameroomapi\GameRoomService.class
+com\example\gameroomapi\GameRoomEntity.class
+com\example\gameroomapi\QrCodeGenerator.class
