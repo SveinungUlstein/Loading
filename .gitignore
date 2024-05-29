@@ -16349,3 +16349,6 @@ tags
 ### Nohup template
 nohup.out
 
+!/gameroomAPI/.idea/
+!/gameroomAPI/.idea/
+!/.idea/sonarlint/
