@@ -1,15 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
 .title-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px; /* Adjust the height as needed */
+  width: 100%; /* 90% of the parent container's width */
+  text-align: center;
 }
 
 .title-text {
   font-family: 'VT323', monospace;
-  font-size: 4rem;
+  font-size: 20vh; /* Adjust the size as needed */
   color: #DEA937; /* Mustard color */
   text-shadow: 
     2px 2px 0 #4E3B2B, /* Dark brown shadow */

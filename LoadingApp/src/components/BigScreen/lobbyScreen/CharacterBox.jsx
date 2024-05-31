@@ -1,11 +1,18 @@
-//CharacterBox
 import React from 'react';
+import '../../../styles/CharacterBox.css';
 
-
-const CharacterBox = () => (
-  <div>
-    <div>bilde av karakter</div>
-    <div>hvor mange som har valgt karakter</div>
+const CharacterBox = ({ imageUrl, number }) => (
+  <div className="character-box">
+    <div
+      className="character-image"
+      style={{ backgroundImage: `url(${imageUrl})` }}
+      aria-label="Character Image"
+    ></div>
+    <div className="character-numbers">
+      <div className="character-number">{number}</div>
+      <div className="character-number">{number}</div>
+      <div className="character-number">{number}</div>
+    </div>
   </div>
 );
 
