@@ -1,23 +1,36 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import ScoreHeader from '../../components/BigScreen/ScoreScreen/ScoreHeader';
+import ChoiceImage from '../../components/BigScreen/ScoreScreen/ChoiceImage';
+import ChoiceText from '../../components/BigScreen/ScoreScreen/ChoiceText';
+import Chart from '../../components/BigScreen/ScoreScreen/Chart';
+import '../../styles/scorePage.css';
 
-function ScorePage() {
-  const navigate = useNavigate();
+const ScorePage = () => {
+  const weaponImage = '/src/images/PilOgBue.png'; // Update this path as needed
+  const weaponChoice = 'pil og bue';
+  const chartData = [
+    { percentage: 35, label: '35%' },
+    { percentage: 65, label: '65%' }
+  ];
+  const chartImages = [
+    '/src/images/PilOgBue.png', // Update this path as needed
+    '/src/images/PilOgBue.png' // Update this path as needed
+  ];
+
 
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900">Score Page</h2>
-        <p className="text-gray-600">Velkommen til Score Page.</p>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
+    <div className="score-container flex flex-col items-center h-screen">
+      <ScoreHeader />
+      <div className="score-content grid grid-cols-2 gap-4 w-full max-w-screen-lg mt-8">
+        <div className="score-left flex flex-col items-center">
+          <ChoiceImage imageUrl={weaponImage} />
+          <ChoiceText text={`Ragnar valgte ${weaponChoice}`} />
+        </div>
+        <div className="score-right flex flex-col items-center h-full">
+          <Chart data={chartData} images={chartImages} />
+        </div>
       </div>
     </div>
   );
-}
-
+};
 export default ScorePage;
