@@ -25,7 +25,9 @@ public class GameroomApiApplication {
 
     private synchronized void generateQRCode(String text) {
         try {
-            QrCodeGenerator.generateQRCodeImage(text, 350, 350, "./MyQRCode.png");
+            String filePath = "MyQRCode.png";
+            QrCodeGenerator.generateQRCodeImage(text, 350, 350, filePath);
+            System.out.println("QR Code generated at " + filePath);
         } catch (WriterException | IOException e) {
             System.out.println("Could not generate QR Code: " + e.getMessage());
         }

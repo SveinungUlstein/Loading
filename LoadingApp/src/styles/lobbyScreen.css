@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'VT323', monospace;
+}
+
+#root {
+  height: 100%;
+}
+
+.lobby-container {
+  @apply bg-cream h-screen grid grid-cols-2 grid-rows-2 gap-4 p-4 font-vt323;
+}
+
+.timer-section {
+  @apply flex flex-col items-center;
+}
+
+.timer-text {
+  @apply text-center text-3xl font-bold;
+}
+
+.timer-seconds {
+  @apply text-center text-7xl font-bold mt-2;
+}
+
+.timer-image {
+  width: 10vh;  /* Adjust size as needed */
+  height: 10vh; /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-top: 1vh;
+}
