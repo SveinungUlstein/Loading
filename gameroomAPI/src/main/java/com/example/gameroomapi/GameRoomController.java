@@ -6,13 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/GameRoom")
+@RequestMapping("/gameroom")
 public class  GameRoomController {
 
     @Autowired
     private GameRoomService gameRoomService;
 
-    @PostMapping("/create")
+    @PostMapping("/lobby")
     public ResponseEntity<GameRoomEntity> createGameRoom() {
         GameRoomEntity gameRoom = gameRoomService.createGameRoom();
         return new ResponseEntity<>(gameRoom, HttpStatus.CREATED);
