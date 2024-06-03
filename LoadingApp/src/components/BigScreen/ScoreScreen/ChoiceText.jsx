@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/choiceText.css';
+import '../../../styles/ScorePageStyles/chart.css';
 
 const ChoiceText = ({ text }) => {
   return (

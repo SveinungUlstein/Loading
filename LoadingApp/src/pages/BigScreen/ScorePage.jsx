@@ -3,7 +3,7 @@ import ScoreHeader from '../../components/BigScreen/ScoreScreen/ScoreHeader';
 import ChoiceImage from '../../components/BigScreen/ScoreScreen/ChoiceImage';
 import ChoiceText from '../../components/BigScreen/ScoreScreen/ChoiceText';
 import Chart from '../../components/BigScreen/ScoreScreen/Chart';
-import '../../styles/scorePage.css';
+import '../../styles/ScorePageStyles/scorePage.css';
 
 const ScorePage = () => {
   const weaponImage = '/src/images/PilOgBue.png'; // Update this path as needed

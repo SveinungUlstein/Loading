@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/scoreHeader.css';
+import '../../../styles/ScorePageStyles/chart.css';
 
 const ScoreHeader = () => {
   return (

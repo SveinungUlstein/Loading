@@ -1,7 +1,7 @@
 import React from 'react';
 import VotingText from '../../components/BigScreen/StoryOptionScreen/VotingText';
 import VotingHighlight from '../../components/BigScreen/StoryOptionScreen/VotingHighlight';
-import '../../styles/votingPage.css';
+import '../../styles/VotingPageStyles/votingPage.css';
 
 const VotingPage = () => {
   return (
