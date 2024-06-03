@@ -1,39 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const TestController = () => {
   const [gameRooms, setGameRooms] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetch('http://localhost:8080/gameRoomEntities')
-      .then((response) => response.json())
-      .then((data) => {
-        const gameRoomsData = data._embedded.gameRoomEntities;
+  const fetchGameRooms = () => {
+    setLoading(true);
+    axios.get('http://localhost:8080/gameRoomEntities')
+      .then((response) => {
+        const gameRoomsData = response.data._embedded.gameRoomEntities;
         setGameRooms(gameRoomsData);
+        console.log('Fetched game rooms:', gameRoomsData);
         setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
         setLoading(false);
       });
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  };
 
   return (
     <div>
-      <h1>Game Rooms</h1>
-      <ul>
-        {gameRooms.map((room) => (
-          <li key={room._links.self.href}>
-            <h2>QR Code: <a href={room.qrCodeData}>{room.qrCodeData}</a></h2>
-            <p>Active: {room.active ? 'Yes' : 'No'}</p>
-            <p>Link: <a href={room._links.self.href}>{room._links.self.href}</a></p>
-          </li>
-        ))}
-      </ul>
+      <button
+        onClick={fetchGameRooms}
+        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 mt-4"
+      >
+        Retrieve Game Rooms
+      </button>
+      {loading && <p>Loading...</p>}
+      {gameRooms.length > 0 && (
+        <div className="mt-4 text-left">
+          <h3 className="text-xl text-gray-900 font-bold">Game Rooms:</h3>
+          <ul>
+            {gameRooms.map((room) => (
+              <li key={room._links.self.href} className="border p-2 mb-2 rounded">
+                <h4 className="text-lg font-bold">QR Code: <a href={room.qrCodeData} className="text-blue-500">{room.qrCodeData}</a></h4>
+                <p>Active: {room.active ? 'Yes' : 'No'}</p>
+                <p>Link: <a href={room._links.self.href} className="text-blue-500">{room._links.self.href}</a></p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
