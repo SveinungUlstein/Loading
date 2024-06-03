@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../../styles/lobbyScreen.css';
+import '../../../styles/LobbyStyles/lobbyScreen.css';
 
 const TimerBox = ({ timerImageUrl }) => {
   const [time, setTime] = useState(300); // 300 seconds = 5 minutes
