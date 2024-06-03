@@ -8,13 +8,13 @@ import lombok.Getter;
 public class GameRoomEntity {
 
     @Id
-    private String id;
+    private int id;
 
     private boolean active;
 
     private String qrCodeData;
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

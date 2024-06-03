@@ -11,18 +11,18 @@ public class GameRoomService {
 
     public GameRoomEntity createGameRoom() {
         GameRoomEntity gameRoom = new GameRoomEntity();
-        gameRoom.setId(UUID.randomUUID().toString());
+        gameRoom.setId(1);
         gameRoom.setActive(true);
-        gameRoom.setQrCodeData("http://localhost:5173/lobby" + gameRoom.getId());
+        gameRoom.setQrCodeData("http://localhost:8080/status/" + gameRoom.getId());
         return gameRoomRepository.save(gameRoom);
     }
 
-    public boolean isGameRoomActive(String id) {
-        return gameRoomRepository.findById(id).map(GameRoomEntity::isActive).orElse(false);
+    public boolean isGameRoomActive(int id) {
+        return gameRoomRepository.findById(String.valueOf(id)).map(GameRoomEntity::isActive).orElse(false);
     }
 
-    public void finishGameRoom(String id) {
-        gameRoomRepository.findById(id).ifPresent(room -> {
+    public void finishGameRoom(int id) {
+        gameRoomRepository.findById(String.valueOf(id)).ifPresent(room -> {
             room.setActive(false);
             gameRoomRepository.save(room);
         });

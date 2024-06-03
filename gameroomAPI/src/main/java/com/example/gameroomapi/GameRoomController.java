@@ -25,13 +25,13 @@ public class  GameRoomController {
 
     @GetMapping("/status/{id}")
     public ResponseEntity<Boolean> checkGameRoomStatus(@PathVariable String id) {
-        boolean isActive = gameRoomService.isGameRoomActive(id);
+        boolean isActive = gameRoomService.isGameRoomActive(Integer.parseInt(id));
         return new ResponseEntity<>(isActive, HttpStatus.OK);
     }
 
     @PostMapping("/finish/{id}")
     public ResponseEntity<Void> finishGameRoom(@PathVariable String id) {
-        gameRoomService.finishGameRoom(id);
+        gameRoomService.finishGameRoom(Integer.parseInt(id));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
