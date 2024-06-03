@@ -10,17 +10,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/gameroom")
 @CrossOrigin(origins = "http://localhost:5173")
 public class  GameRoomController {
-
     @Autowired
     private GameRoomService gameRoomService;
-    @Autowired
-    private SimpMessagingTemplate messagingTemplate;
 
     @PostMapping("/lobby")
     public ResponseEntity<GameRoomEntity> createGameRoom() {
         GameRoomEntity gameRoom = gameRoomService.createGameRoom();
-        messagingTemplate.convertAndSend("(/gameroom/lobby)", gameRoom.getId());
-        return new ResponseEntity<>(gameRoom, HttpStatus.CREATED);
+        return new ResponseEntity<>(new GameRoomEntity(gameRoom.getId()), HttpStatus.CREATED);
     }
 
     @GetMapping("/status/{id}")
