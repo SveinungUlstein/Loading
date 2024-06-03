@@ -13,7 +13,7 @@ public class websocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(webSocketHandler(), "/game")
+        registry.addHandler(webSocketHandler(), "/status/{id}")
                 .setAllowedOrigins("*");
     }
 
