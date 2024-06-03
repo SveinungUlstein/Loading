@@ -13,7 +13,7 @@ public class GameRoomService {
         GameRoomEntity gameRoom = new GameRoomEntity();
         gameRoom.setId(UUID.randomUUID().toString());
         gameRoom.setActive(true);
-        gameRoom.setQrCodeData("http://localhost:8080/GameRoom/status/" + gameRoom.getId());
+        gameRoom.setQrCodeData("http://localhost:5173/gameroom/status/" + gameRoom.getId());
         return gameRoomRepository.save(gameRoom);
     }
 
