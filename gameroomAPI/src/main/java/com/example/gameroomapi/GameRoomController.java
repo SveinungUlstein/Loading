@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/gameroom")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "**")
 public class  GameRoomController {
     @Autowired
     private GameRoomService gameRoomService;
