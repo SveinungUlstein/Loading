@@ -17,33 +17,26 @@ html, body {
 }
 
 .lobby-container {
-  @apply bg-cream h-screen flex flex-col justify-center items-center p-4 font-vt323;
-}
-
-.character-container {
-  @apply flex space-x-8 mb-8;
-}
-
-.character-box {
-  @apply text-center;
-}
-
-.character-image {
-  @apply w-32 h-32 bg-no-repeat bg-center bg-contain;
-}
-
-.character-number {
-  @apply text-xl font-bold mt-2;
+  @apply bg-cream h-screen grid grid-cols-2 grid-rows-2 gap-4 p-4 font-vt323;
 }
 
 .timer-section {
-  @apply flex items-center justify-around w-full max-w-4xl mb-8;
+  @apply flex flex-col items-center;
 }
 
 .timer-text {
-  @apply text-center text-xl font-bold;
+  @apply text-center text-3xl font-bold;
 }
 
 .timer-seconds {
-  @apply text-xl font-bold;
+  @apply text-center text-7xl font-bold mt-2;
+}
+
+.timer-image {
+  width: 10vh;  /* Adjust size as needed */
+  height: 10vh; /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-top: 1vh;
 }

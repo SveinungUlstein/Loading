@@ -1,23 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import VotingText from '../../components/BigScreen/StoryOptionScreen/VotingText';
+import VotingHighlight from '../../components/BigScreen/StoryOptionScreen/VotingHighlight';
+import '../../styles/votingPage.css';
 
-function VotingPage() {
-  const navigate = useNavigate();
-
+const VotingPage = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900">Voting Page</h2>
-        <p className="text-gray-600">Velkommen til Voting Page.</p>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
-      </div>
+    <div className="voting-container flex flex-col justify-center items-center h-screen">
+      <VotingText text="{mainText}" /> 
+      {/* Maintext skal kunne endres fra admin */}
+      <VotingHighlight text="Ta opp telefonen nå og STEM" />
     </div>
   );
-}
+};
 
 export default VotingPage;
