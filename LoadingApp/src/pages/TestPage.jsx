@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import TestController from '../controller/testcontroller';
 
-function TestPage() {
+function TestPage(){
   const [gameRoomStatus, setGameRoomStatus] = useState(null);
   const [gameRooms, setGameRooms] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,7 +31,6 @@ function TestPage() {
         });
   };
 
->>>>>>> benjamin
   return (
       <div className="flex items-center justify-center h-screen bg-black overflow-hidden">
         <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
