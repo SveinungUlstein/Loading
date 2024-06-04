@@ -1,23 +1,29 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import Title1 from '../../components/Common/Title1';
+import Image from '../../components/BigScreen/RatingScreen/Image';
+import TextSection from '../../components/BigScreen/RatingScreen/TextSection';
+import SoMeComponent from '../../components/BigScreen/RatingScreen/SoMeComponent';
+import ArrowNavigationLeft from '../../components/Common/ArrowNavigationLeft';
+import '../../styles/RatingPageStyles/ratingPage.css'
 
-function RatingPage() {
-  const navigate = useNavigate();
-
+const NewPage = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900">Rating Page</h2>
-        <p className="text-gray-600">Velkommen til Rating Page.</p>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
+    <div className="new-page-container grid grid-cols-2 gap-4 h-screen p-8 bg-cream">
+      <div className="col-span-1 flex flex-col items-center">
+        <Title1 />
+        <Image />
       </div>
+      <div className="col-span-1 flex justify-center items-center">
+        <SoMeComponent />
+      </div>
+      <div className="col-span-2">
+        <TextSection />
+      </div>
+      <div className="absolute bottom-4 left-4">
+        <ArrowNavigationLeft nextPage="/totalscore" />
+      </div> 
     </div>
   );
-}
+};
 
-export default RatingPage;
+export default NewPage;

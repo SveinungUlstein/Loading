@@ -3,6 +3,7 @@ import Title1 from '../../components/Common/Title1';
 import CharacterBox from '../../components/BigScreen/lobbyScreen/CharacterBox';
 import TimerBox from '../../components/BigScreen/lobbyScreen/TimerBox';
 import QrCode from '../../components/Common/QRCode';
+import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
 import '../../styles/LobbyStyles/lobbyScreen.css';
 
 const LobbyPage = () => {
@@ -21,6 +22,9 @@ const LobbyPage = () => {
         <div className="text-center mt-4"></div>
         <TimerBox timerImageUrl="/src/images/timer.png" />
         <div className="text-center mt-4 timer-seconds"></div>
+      </div>
+      <div className="absolute bottom-4 right-4">
+        <ArrowNavigationRight nextPage="/voting" />
       </div>
     </div>
   );
