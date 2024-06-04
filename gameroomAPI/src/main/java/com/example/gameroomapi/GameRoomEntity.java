@@ -1,31 +1,26 @@
 package com.example.gameroomapi;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.MapKeyColumn;
-import lombok.Getter;
 
-import java.util.HashMap;
-import java.util.Map;
+import jakarta.persistence.*;
+import lombok.Getter;
+import com.example.gameroomapi.model.PlayerUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
 public class GameRoomEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private boolean active;
 
     private String qrCodeData;
 
-    @ElementCollection
-    @MapKeyColumn(name = "userId")
-    private Map<Integer, userDetail> users = new HashMap<>();
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "gameRoom", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PlayerUser> players = new ArrayList<>();
 
     public void setActive(boolean active) {
         this.active = active;
@@ -35,7 +30,4 @@ public class GameRoomEntity {
         this.qrCodeData = qrCodeData;
     }
 
-    public void addUser(int userId, String username, Byte avatar, String cookie){
-        users.put(userId, new userDetail(username, avatar, cookie));
-    }
 }

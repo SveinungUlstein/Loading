@@ -1,6 +1,6 @@
-package repo;
+package com.example.gameroomapi.repo;
 
-import model.Feedback;
+import com.example.gameroomapi.model.Feedback;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 @Repository

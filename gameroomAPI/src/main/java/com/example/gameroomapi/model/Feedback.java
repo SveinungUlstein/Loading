@@ -1,4 +1,4 @@
-package model;
+package com.example.gameroomapi.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
