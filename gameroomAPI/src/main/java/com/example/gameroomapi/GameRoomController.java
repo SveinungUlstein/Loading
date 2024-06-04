@@ -18,6 +18,13 @@ public class  GameRoomController {
         return new ResponseEntity<>(gameRoom, HttpStatus.CREATED);
     }
 
+    @PostMapping("/join")
+    public ResponseEntity<GameRoomEntity> joinGameRoom(@RequestParam int roomId, @RequestParam int userID, @RequestParam String username, @RequestParam Byte avatar, @RequestParam String cookie) {
+        GameRoomEntity gameRoom = gameRoomService.joinRoom(roomId, userID, username, avatar, cookie);
+        return new ResponseEntity<>(gameRoom, HttpStatus.OK);
+    }
+
+
     @GetMapping("/status/{id}")
     public ResponseEntity<Boolean> checkGameRoomStatus(@PathVariable String id) {
         boolean isActive = gameRoomService.isGameRoomActive(Integer.parseInt(id));
