@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/votingText.css';
+import '../../../styles/VotingPageStyles/votingHighlight.css';
 
 const VotingText = ({ text }) => {
   return (
