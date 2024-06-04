@@ -41,6 +41,16 @@ public class websocketHandler extends TextWebSocketHandler {
         sessions.remove(sessionId);
         log.info("no more session on id :(", sessionId);
     }
+
+    private void voteCounter(int choice){
+
+    }
+
+    private void showVote(){
+
+    }
+
+
     private void sendPing(WebSocketSession session) {
         try {
             session.sendMessage(new TextMessage("ping"));

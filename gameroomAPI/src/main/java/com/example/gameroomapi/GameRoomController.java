@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/gameroom")
 @CrossOrigin(origins = "http://localhost:5173")
-public class  GameRoomController {
+public class GameRoomController {
+
     @Autowired
     private GameRoomService gameRoomService;
 
@@ -19,21 +20,26 @@ public class  GameRoomController {
     }
 
     @PostMapping("/join")
-    public ResponseEntity<GameRoomEntity> joinGameRoom(@RequestParam int roomId, @RequestParam String username, @RequestParam Byte avatar, @RequestParam String cookie) {
-        GameRoomEntity gameRoom = gameRoomService.joinRoom(roomId, username, avatar, cookie);
+    public ResponseEntity<GameRoomEntity> joinGameRoom(@RequestParam int roomId, @RequestParam Long userId, @RequestParam String username, @RequestParam Integer avatar, @RequestParam String cookie) {
+        GameRoomEntity gameRoom = gameRoomService.joinRoom(roomId, userId, username, avatar, cookie);
         return new ResponseEntity<>(gameRoom, HttpStatus.OK);
     }
 
+    @GetMapping("/lobby")
+    public ResponseEntity<GameRoomEntity> getPlayers(@RequestParam int roomId) {
+        GameRoomEntity gameRoom = gameRoomService.showPlayerList(roomId);
+        return new ResponseEntity<>(gameRoom, HttpStatus.CREATED);
+    }
 
     @GetMapping("/status/{id}")
-    public ResponseEntity<Boolean> checkGameRoomStatus(@PathVariable String id) {
-        boolean isActive = gameRoomService.isGameRoomActive(Integer.parseInt(id));
+    public ResponseEntity<Boolean> checkGameRoomStatus(@PathVariable int id) {
+        boolean isActive = gameRoomService.isGameRoomActive(id);
         return new ResponseEntity<>(isActive, HttpStatus.OK);
     }
 
     @PostMapping("/finish/{id}")
-    public ResponseEntity<Void> finishGameRoom(@PathVariable String id) {
-        gameRoomService.finishGameRoom(Integer.parseInt(id));
+    public ResponseEntity<Void> finishGameRoom(@PathVariable int id) {
+        gameRoomService.finishGameRoom(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
