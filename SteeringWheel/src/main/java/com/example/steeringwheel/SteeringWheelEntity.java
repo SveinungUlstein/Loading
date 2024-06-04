@@ -12,7 +12,6 @@ public class SteeringWheelEntity {
     private String id;
 
     private boolean active;
-    private String qrCodeData;
 
     public void setId(String id) {
         this.id = id;
@@ -20,9 +19,5 @@ public class SteeringWheelEntity {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public void setQrCodeData(String qrCodeData) {
-        this.qrCodeData = qrCodeData;
     }
 }

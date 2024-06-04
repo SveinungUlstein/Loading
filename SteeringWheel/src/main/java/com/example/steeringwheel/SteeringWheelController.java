@@ -30,9 +30,9 @@ public class SteeringWheelController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/writeText")
-    public ResponseEntity<Void> writeText(@RequestParam string userText) {
-        steeringWheelService.saveTextToFile(userText);
+    @PostMapping ("/storeText")
+    public ResponseEntity<Void> storeText(@RequestParam String writeText) {
+        steeringWheelService.writeToDatabase(writeText);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

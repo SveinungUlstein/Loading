@@ -10,11 +10,13 @@ public class SteeringWheelService {
     @Autowired
     private SteeringWheelRepository steeringWheelRepository;
 
+    @Autowired
+    private WriteTextRepository writeTextRepository;
+
     public SteeringWheelEntity createSteeringWheel() {
         SteeringWheelEntity steeringWheel = new SteeringWheelEntity();
         steeringWheel.setId(UUID.randomUUID().toString());
         steeringWheel.setActive(true);
-        steeringWheel.setQrCodeData("http://localhost:8080/GameRoom/status/" + steeringWheel.getId());
         return steeringWheelRepository.save(steeringWheel);
     }
 
@@ -29,12 +31,9 @@ public class SteeringWheelService {
         });
     }
 
-    public void writeToFile(String text) {
-        try (BufferdWriter writer = new BufferdWriter(new FileWriter("userText.txt", true))){
-            writer.write(text);
-            writer.newLine();
-        }catch (IOExeption e) {
-            e.printStackTrace();
-        }
+    public void writeToDatabase(String text) {
+        WriteText writeText = new WriteText();
+        writeText.setText(text);
+        writeTextRepository.save(writeText);
     }
 }
