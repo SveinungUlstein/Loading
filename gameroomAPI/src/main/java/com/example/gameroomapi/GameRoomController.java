@@ -19,8 +19,8 @@ public class  GameRoomController {
     }
 
     @PostMapping("/join")
-    public ResponseEntity<GameRoomEntity> joinGameRoom(@RequestParam int roomId, @RequestParam int userID, @RequestParam String username, @RequestParam Byte avatar, @RequestParam String cookie) {
-        GameRoomEntity gameRoom = gameRoomService.joinRoom(roomId, userID, username, avatar, cookie);
+    public ResponseEntity<GameRoomEntity> joinGameRoom(@RequestParam int roomId, @RequestParam String username, @RequestParam Byte avatar, @RequestParam String cookie) {
+        GameRoomEntity gameRoom = gameRoomService.joinRoom(roomId, username, avatar, cookie);
         return new ResponseEntity<>(gameRoom, HttpStatus.OK);
     }
 

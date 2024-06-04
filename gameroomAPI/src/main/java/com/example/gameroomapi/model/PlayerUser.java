@@ -1,16 +1,17 @@
-package model;
+package com.example.gameroomapi.model;
 
-
+import com.example.gameroomapi.GameRoomEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @Entity
-
 public class PlayerUser {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "playerUser_seq_gen")
@@ -26,6 +27,10 @@ public class PlayerUser {
 
     @Column(name = "cookie", nullable = false)
     private String cookie;
+
+    @ManyToOne
+    @JoinColumn(name = "game_room_id")
+    private GameRoomEntity gameRoom;
 
     public PlayerUser(String userName, int avatar, String cookie){
         this.userName = userName;
