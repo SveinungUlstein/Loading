@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter @Setter @ToString
 @NoArgsConstructor
 @Entity
@@ -25,6 +27,9 @@ public class Play {
     @Lob
     @Column(name = "playImage",nullable = false)
     private byte[] playImage;
+
+    @OneToMany(mappedBy = "play",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Questions> questions;
 
     public Play(String playName,String playDescription, byte[] playImage){
         this.playName = playName;

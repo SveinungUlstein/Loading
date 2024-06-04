@@ -16,6 +16,19 @@ public class Votes {
     @Column(name = "voteId",nullable = false)
     private long voteId = 0L;
 
-    //join UserId and ChoiceId
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId",nullable = false)
+    private PlayerUser playerUser;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "choiceId",nullable = false)
+    private Choices choice;
+
+    public Votes(PlayerUser playerUser, Choices choice){
+        this.playerUser = playerUser;
+        this.choice = choice;
+    }
+
+
 
 }

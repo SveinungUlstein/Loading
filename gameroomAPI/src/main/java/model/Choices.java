@@ -23,9 +23,12 @@ public class Choices {
     @Column(name = "choiceImage",nullable = false)
     private byte[] choiceImage;
 
-  //join qID
-    public Choices(String choiceTxt, byte[] choiceImage){
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "questionId",nullable = false)
+    private Questions questions;
+    public Choices(String choiceTxt, byte[] choiceImage, Questions questions){
         this.choiceTxt = choiceTxt;
         this.choiceImage = choiceImage;
+        this.questions = questions;
     }
 }

@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter @Setter @ToString
 @NoArgsConstructor
 @Entity
@@ -25,10 +27,16 @@ public class Questions {
     @Column(name = "time",nullable = false)
     private int time;
         //join play id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "playId",nullable = false)
+    private Play play;
 
-    public Questions (String questionTxt, byte[] questionImage, int time){
+    @OneToMany (mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Choices> choices;
+    public Questions (String questionTxt, byte[] questionImage, int time, Play play){
         this.questionTxt = questionTxt;
         this.questionImage = questionImage;
         this. time = time;
+        this.play = play;
     }
 }
