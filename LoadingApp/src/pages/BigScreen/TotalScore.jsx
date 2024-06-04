@@ -1,23 +1,50 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import ChoiceBox from '../../components/BigScreen/TotalScore/ChoiceBox';
+import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
+import '../../styles/TotalScorePageStyles/totalScore.css'
 
-function TotalScore() {
-  const navigate = useNavigate();
+const TotalScore = () => {
+  const mainChoice = {
+    imageSrc: "/path/to/bow-and-arrow.png",
+    altText: "Pil og bue",
+    additionalText: "Ragnar beseiret trollet med pil og bue",
+    scoreText: "53 spillere valgte pil og bue"
+  };
+
+  const additionalChoices = [
+    {
+      scoreText: "Et annet valg man tar ila spillet"
+    },
+    {
+      scoreText: "Et annet valg man tar ila spillet"
+    }
+  ];
 
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900">Total Score Page</h2>
-        <p className="text-gray-600">Velkommen til Total Score Page.</p>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
+    <div className="total-score-container bg-cream p-8 h-screen">
+      <h1 className="total-score-title text-5xl font-vt323 text-mustard mb-8 text-center">TOTAL SCORE</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ChoiceBox
+          imageSrc={mainChoice.imageSrc}
+          altText={mainChoice.altText}
+          additionalText={mainChoice.additionalText}
+          scoreText={mainChoice.scoreText}
+        />
+        {additionalChoices.map((choice, index) => (
+          <ChoiceBox
+            key={index}
+            scoreText={choice.scoreText}
+          />
+        ))}
+      </div>
+      <div className="absolute bottom-4 left-4">
+        <ArrowNavigationRight nextPage="/score" />
+      </div> 
+      <div className="absolute bottom-4 right-4">
+        <ArrowNavigationRight nextPage="/rating" />
       </div>
     </div>
   );
-}
+};
 
 export default TotalScore;

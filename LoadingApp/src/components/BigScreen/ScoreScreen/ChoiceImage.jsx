@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/choiceImage.css';
+import '../../../styles/ScorePageStyles/chart.css';
 
 const ChoiceImage = ({ imageUrl }) => {
   return (

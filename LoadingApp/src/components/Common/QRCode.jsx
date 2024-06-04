@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/QrCode.css';
+import '../../styles/Common/QrCode.css';
 
 const QrCode = () => {
   return (

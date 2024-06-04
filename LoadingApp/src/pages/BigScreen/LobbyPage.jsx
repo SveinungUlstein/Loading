@@ -3,7 +3,8 @@ import Title1 from '../../components/Common/Title1';
 import CharacterBox from '../../components/BigScreen/lobbyScreen/CharacterBox';
 import TimerBox from '../../components/BigScreen/lobbyScreen/TimerBox';
 import QrCode from '../../components/Common/QRCode';
-import '../../styles/lobbyScreen.css';
+import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
+import '../../styles/LobbyStyles/lobbyScreen.css';
 
 const LobbyPage = () => {
   return (
@@ -15,12 +16,15 @@ const LobbyPage = () => {
         <QrCode />
       </div>
       <div className="col-span-1 flex justify-center items-top">
-        <CharacterBox imageUrl="/src/images/3Characters.png" number="16" />
+        <CharacterBox imageUrl="/src/images/3Characters.png" avatarNumber1={12} avatarNumber2={14} avatarNumber3={10} /> 
       </div>
       <div className="col-span-1 flex flex-col justify-center items-center">
         <div className="text-center mt-4"></div>
         <TimerBox timerImageUrl="/src/images/timer.png" />
         <div className="text-center mt-4 timer-seconds"></div>
+      </div>
+      <div className="absolute bottom-4 right-4">
+        <ArrowNavigationRight nextPage="/voting" />
       </div>
     </div>
   );
