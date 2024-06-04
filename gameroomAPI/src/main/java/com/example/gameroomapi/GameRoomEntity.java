@@ -1,8 +1,8 @@
 package com.example.gameroomapi;
 
+import com.example.gameroomapi.model.PlayerUser;
 import jakarta.persistence.*;
 import lombok.Getter;
-import com.example.gameroomapi.model.PlayerUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,4 +30,17 @@ public class GameRoomEntity {
         this.qrCodeData = qrCodeData;
     }
 
+    public void addPlayer(PlayerUser player) {
+        this.players.add(player);
+        player.setGameRoom(this);
+    }
+
+    public void removePlayer(PlayerUser player) {
+        this.players.remove(player);
+        player.setGameRoom(null);
+    }
+
+    public void setPlayers(List<PlayerUser> players) {
+        this.players = players;
+    }
 }
