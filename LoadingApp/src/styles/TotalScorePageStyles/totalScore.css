@@ -1,0 +1,26 @@
+.total-score-container {
+    font-family: 'VT323', monospace;
+    background-color: #E8E3C3; /* Cream color */
+  }
+  
+  .total-score-title {
+    color: #DEA937; /* Mustard color */
+  }
+  
+  .choice-box {
+    border-color: #DEA937; /* Mustard color */
+    margin-bottom: 1rem;
+  }
+  
+  .choice-box img {
+    max-height: 50px;
+  }
+  
+  .choice-box p {
+    margin: 0;
+  }
+  .arrow-navigation-container {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
