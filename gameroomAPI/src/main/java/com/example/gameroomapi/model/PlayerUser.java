@@ -1,6 +1,5 @@
 package com.example.gameroomapi.model;
 
-import com.example.gameroomapi.GameRoomEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;

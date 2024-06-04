@@ -1,4 +1,4 @@
-package com.example.gameroomapi;
+package com.example.gameroomapi.model;
 
 import com.example.gameroomapi.model.PlayerUser;
 import jakarta.persistence.*;
