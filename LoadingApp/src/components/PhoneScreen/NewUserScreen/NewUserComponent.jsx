@@ -1,31 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../../styles/newUserScreen.css'; // Ensure this path matches your project structure
 
 function NewUserComponent() {
   const navigate = useNavigate();
   const [name, setName] = useState('');
+  const [isPortrait, setIsPortrait] = useState(false);
+
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      setIsPortrait(window.innerHeight > window.innerWidth);
+    };
+
+    handleOrientationChange();
+    window.addEventListener('orientationchange', handleOrientationChange);
+    window.addEventListener('resize', handleOrientationChange);
+
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      window.removeEventListener('resize', handleOrientationChange);
+    };
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Navigate to the next screen or handle the character selection
     console.log("Character Selected with Name: ", name);
-    navigate('/next-route'); // Modify as necessary
+    navigate('/'); 
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-brown-dark text-white font-vt323">
-      <div className="flex justify-between items-center w-full max-w-4xl p-4">
+    <div className="flex flex-col items-center justify-center h-screen bg-dark text-white font-vt323 relative">
+      <div className="flex justify-between items-center w-full max-w-4xl p-4 bg-brown-dark rounded-lg">
         <div className="flex flex-col items-start">
           <h1 className="text-2xl mb-4">Hvem vil du være?</h1>
-          <div className="flex">
-            <img src="/path/to/character1.png" alt="Character 1" className="w-24 h-24 mr-4 cursor-pointer"/>
-            <img src="/path/to/character2.png" alt="Character 2" className="w-24 h-24 mr-4 cursor-pointer"/>
-            <img src="/path/to/character3.png" alt="Character 3" className="w-24 h-24 cursor-pointer"/>
+          <div className="flex items-center">
+            <img src="src/images/snakkegutt.png" alt="Character 1" className="character-img mr-4 cursor-pointer"/>
+            <img src="src/images/character2.png" alt="Character 2" className="character-img mr-4 cursor-pointer"/>
+            <img src="src/images/snakkejente.png" alt="Character 3" className="character-img cursor-pointer"/>
           </div>
         </div>
-        <div className="flex flex-col items-end">
+        <div className="divider"></div>
+        <div className="flex flex-col items-start">
           <h1 className="text-2xl mb-4">Hva vil du kalle deg?</h1>
-          <form onSubmit={handleSubmit} className="w-full max-w-xs">
+          <form onSubmit={handleSubmit} className="w-full max-w-xs relative">
             <input 
               type="text" 
               placeholder="Skriv inn" 
@@ -33,9 +50,14 @@ function NewUserComponent() {
               onChange={e => setName(e.target.value)} 
               className="p-2 bg-yellow-300 text-black rounded w-full"
             />
-            <button type="submit" className="mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded font-bold">LOAD</button>
+            <button type="submit" className="absolute bottom-4 right-4">
+              <img src="src/images/load-button.png" alt="LOAD" className="w-20" />
+            </button>
           </form>
         </div>
+      </div>
+      <div className={`orientation-warning ${isPortrait ? 'visible' : ''}`}>
+        <img src="src/images/turnphone.png" alt="Please rotate your device" />
       </div>
     </div>
   );

@@ -55,6 +55,13 @@ function TestPage(){
               <Link className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700" to="/phonevoting">Phone Voting</Link>
               <Link className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700" to="/userchoice">User Choice</Link>
             </div>
+            <h3 className="text-xl text-gray-900 font-bold">Adminskjerm:</h3>
+            <div className="flex flex-wrap justify-center space-x-2 space-y-2">
+              <Link className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-green-700" to="/adminreport">Report / rapporter</Link>
+              <Link className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-green-700" to="/adminlibrary">Library / bibliotek</Link>
+              <Link className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-green-700" to="/adminhome">Home / hjem</Link>
+
+            </div>
           </div>
           <button
               onClick={() => fetchGameRoomStatus(1)}
