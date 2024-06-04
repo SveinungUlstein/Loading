@@ -16,15 +16,15 @@ public class Choices {
     @Column(name = "choiceID",nullable = false)
     private Long choiceID = 0L;
 
-    @Column(name = "choiceTxt",nullable = false)
+    @Column(name = "choiceTxt",nullable = true)
     private String choiceTxt;
 
     @Lob
-    @Column(name = "choiceImage",nullable = false)
+    @Column(name = "choiceImage",nullable = true)
     private byte[] choiceImage;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "questionId",nullable = false)
+    @JoinColumn(name = "questionId",nullable = true)
     private Questions questions;
     public Choices(String choiceTxt, byte[] choiceImage, Questions questions){
         this.choiceTxt = choiceTxt;

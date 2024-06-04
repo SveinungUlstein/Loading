@@ -1,11 +1,14 @@
 package com.example.gameroomapi;
 
+import com.example.gameroomapi.model.Feedback;
+import com.example.gameroomapi.repo.FeedbackRepo;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
 import com.google.zxing.WriterException;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class GameroomApiApplication {
@@ -14,7 +17,12 @@ public class GameroomApiApplication {
     private GameRoomService gameRoomService;
 
     public static void main(String[] args) {
-        SpringApplication.run(GameroomApiApplication.class, args);
+        ConfigurableApplicationContext configurableApplicationContext =
+                SpringApplication.run(GameroomApiApplication.class, args);
+        FeedbackRepo feedbackRepo =
+            configurableApplicationContext.getBean(FeedbackRepo.class);
+        Feedback myFeedback = new Feedback("very good", 5);
+        feedbackRepo.delete(myFeedback);
     }
 
     @PostConstruct
