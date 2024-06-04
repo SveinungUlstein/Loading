@@ -25,7 +25,7 @@ public class Play {
     private String playDescription;
 
     @Lob
-    @Column(name = "playImage",nullable = false)
+    @Column(name = "playImage",nullable = true)
     private byte[] playImage;
 
     @OneToMany(mappedBy = "play",cascade = CascadeType.ALL,orphanRemoval = true)
