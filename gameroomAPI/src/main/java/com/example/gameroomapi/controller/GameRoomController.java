@@ -1,5 +1,7 @@
-package com.example.gameroomapi;
+package com.example.gameroomapi.controller;
 
+import com.example.gameroomapi.model.GameRoomEntity;
+import com.example.gameroomapi.service.GameRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
