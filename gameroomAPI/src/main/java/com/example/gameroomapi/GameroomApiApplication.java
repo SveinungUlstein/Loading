@@ -1,6 +1,10 @@
 package com.example.gameroomapi;
 
+import com.example.gameroomapi.model.AdminUser;
+import com.example.gameroomapi.model.Choices;
 import com.example.gameroomapi.model.Feedback;
+import com.example.gameroomapi.repo.AdminUserRepo;
+import com.example.gameroomapi.repo.ChoicesRepo;
 import com.example.gameroomapi.repo.FeedbackRepo;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +23,10 @@ public class GameroomApiApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext configurableApplicationContext =
                 SpringApplication.run(GameroomApiApplication.class, args);
-        FeedbackRepo feedbackRepo =
-            configurableApplicationContext.getBean(FeedbackRepo.class);
-        Feedback myFeedback = new Feedback("very good", 5);
-        feedbackRepo.delete(myFeedback);
+        ChoicesRepo choicesRepo =
+            configurableApplicationContext.getBean(ChoicesRepo.class);
+        Choices myChoices = new Choices();
+        choicesRepo.save(myChoices);
     }
 
     @PostConstruct
