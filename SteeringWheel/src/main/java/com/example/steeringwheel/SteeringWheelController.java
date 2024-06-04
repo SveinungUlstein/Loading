@@ -29,4 +29,10 @@ public class SteeringWheelController {
         steeringWheelService.finishSteeringWheel(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PostMapping("/writeText")
+    public ResponseEntity<Void> writeText(@RequestParam string userText) {
+        steeringWheelService.saveTextToFile(userText);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
 }

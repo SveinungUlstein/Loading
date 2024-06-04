@@ -28,4 +28,13 @@ public class SteeringWheelService {
             steeringWheelRepository.save(wheel);
         });
     }
+
+    public void writeToFile(String text) {
+        try (BufferdWriter writer = new BufferdWriter(new FileWriter("userText.txt", true))){
+            writer.write(text);
+            writer.newLine();
+        }catch (IOExeption e) {
+            e.printStackTrace();
+        }
+    }
 }
