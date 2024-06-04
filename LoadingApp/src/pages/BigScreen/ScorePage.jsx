@@ -3,7 +3,9 @@ import ScoreHeader from '../../components/BigScreen/ScoreScreen/ScoreHeader';
 import ChoiceImage from '../../components/BigScreen/ScoreScreen/ChoiceImage';
 import ChoiceText from '../../components/BigScreen/ScoreScreen/ChoiceText';
 import Chart from '../../components/BigScreen/ScoreScreen/Chart';
-import '../../styles/scorePage.css';
+import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
+import ArrowNavigationLeft from '../../components/Common/ArrowNavigationLeft';
+import '../../styles/ScorePageStyles/scorePage.css';
 
 const ScorePage = () => {
   const weaponImage = '/src/images/PilOgBue.png'; // Update this path as needed
@@ -29,6 +31,12 @@ const ScorePage = () => {
         <div className="score-right flex flex-col items-center h-full">
           <Chart data={chartData} images={chartImages} />
         </div>
+      </div>
+      <div className="absolute bottom-4 left-4">
+        <ArrowNavigationRight nextPage="/voting" />
+      </div> 
+      <div className="absolute bottom-4 right-4">
+        <ArrowNavigationRight nextPage="/totalScore" />
       </div>
     </div>
   );
