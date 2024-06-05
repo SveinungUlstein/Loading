@@ -33,7 +33,7 @@ const ScorePage = () => {
         </div>
       </div>
       <div className="absolute bottom-4 left-4">
-        <ArrowNavigationRight nextPage="/voting" />
+        <ArrowNavigationLeft nextPage="/voting" />
       </div> 
       <div className="absolute bottom-4 right-4">
         <ArrowNavigationRight nextPage="/totalScore" />

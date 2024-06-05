@@ -12,7 +12,7 @@ const VotingPage = () => {
       {/* Maintext skal kunne endres fra admin */}
       <VotingHighlight text="Ta opp telefonen nå og STEM" />
       <div className="absolute bottom-4 left-4">
-        <ArrowNavigationRight nextPage="/lobby" />
+        <ArrowNavigationLeft nextPage="/lobby" />
       </div> 
       <div className="absolute bottom-4 right-4">
         <ArrowNavigationRight nextPage="/score" />
