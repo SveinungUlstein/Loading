@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/question")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class questionController {
 
     @Autowired
@@ -28,7 +28,6 @@ public class questionController {
     @Autowired
     private questionService questionService;
 
-    @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
     @GetMapping()
     public ResponseEntity<List<Questions>> getAllQuestions() {
         List<Questions> allQuestions = questionService.getAllQuestions();

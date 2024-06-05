@@ -27,7 +27,6 @@ public class Questions {
     @Column(name = "time", nullable = false)
     private int time;
 
-    // join play id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "playId", nullable = false)
     private Play play;

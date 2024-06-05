@@ -24,7 +24,7 @@ public class VotesController {
     @Autowired
     private choiceService choiceService;
 
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<List<Votes>> getAllVotes() {
         List<Votes> allVotes = votesService.getAllVotes();
         return ResponseEntity.ok(allVotes);
