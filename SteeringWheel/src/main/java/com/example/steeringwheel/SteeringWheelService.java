@@ -33,7 +33,7 @@ public class SteeringWheelService {
 
     public void writeToDatabase(String text) {
         WriteText writeText = new WriteText();
-        writeText.setText(text);
+        writeText.setQuestionTxt(text);
         writeTextRepository.save(writeText);
     }
 }

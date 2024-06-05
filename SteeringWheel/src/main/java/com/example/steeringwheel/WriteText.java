@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "QUESTIONS")
 
 public class WriteText {
     @Id
@@ -17,5 +17,5 @@ public class WriteText {
 
     private Long id;
 
-    private String text;
+    private String questionTxt;
 }
