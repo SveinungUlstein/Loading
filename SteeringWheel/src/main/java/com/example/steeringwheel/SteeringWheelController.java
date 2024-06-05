@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/AdminRoom")
@@ -34,5 +37,16 @@ public class SteeringWheelController {
     public ResponseEntity<Void> storeText(@RequestParam String writeText) {
         steeringWheelService.writeToDatabase(writeText);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PostMapping("/storeImage")
+    public ResponseEntity<Void> storeImage(@RequestParam MultipartFile image) {
+        try {
+            steeringWheelService.imageToDatabase(image);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
