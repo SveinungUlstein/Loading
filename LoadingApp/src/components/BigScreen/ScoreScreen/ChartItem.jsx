@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../styles/chartItem.css';
+import '../../../styles/ScorePageStyles/chart.css';
 
 const ChartItem = ({ percentage, label, image }) => {
   return (
