@@ -16,9 +16,8 @@ public class choiceController {
     private choiceService choiceService;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createChoice(@RequestBody Choices choice) {
-
-        choiceService.saveChoice(choice);
+    public ResponseEntity<String> createChoice(@RequestBody Choices choice,Long questionId ) {
+        choiceService.saveChoice(choice, questionId);
         return ResponseEntity.status(HttpStatus.CREATED).body("Choice created successfully");
     }
 
