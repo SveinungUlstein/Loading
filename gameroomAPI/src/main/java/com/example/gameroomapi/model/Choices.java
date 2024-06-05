@@ -14,14 +14,13 @@ public class Choices {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "choices_seq_gen")
     @SequenceGenerator(name = "choices_seq_gen", sequenceName = "choices_seq", allocationSize = 1)
     @Column(name = "choiceId", nullable = false)
-    private Long choiceId = 0L;
+    private Long choiceId;
 
     @Column(name = "choiceTxt",nullable = true)
     private String choiceTxt;
 
     @Lob
     @Column(name = "choiceImage",nullable = true)
-
     private byte[] choiceImage;
 
     @ManyToOne(fetch = FetchType.LAZY)

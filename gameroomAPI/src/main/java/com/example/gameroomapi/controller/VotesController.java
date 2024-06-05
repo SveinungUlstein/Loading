@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/votes")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173")
 public class VotesController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class VotesController {
     @Autowired
     private choiceService choiceService;
 
-    @GetMapping("")
+    @GetMapping("/all")
     public ResponseEntity<List<Votes>> getAllVotes() {
         List<Votes> allVotes = votesService.getAllVotes();
         return ResponseEntity.ok(allVotes);
