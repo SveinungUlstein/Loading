@@ -7,6 +7,8 @@ import com.example.gameroomapi.repo.PlayerUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class GameRoomService {
 
@@ -37,7 +39,7 @@ public class GameRoomService {
         }).orElseThrow(() -> new RuntimeException("Game room not found"));
     }
 
-    public GameRoomEntity showPlayerList(int roomId) {
+    public GameRoomEntity showRoomList(int roomId) {
         return gameRoomRepository.findById(String.valueOf(roomId)).orElseThrow(() -> new RuntimeException("Game room not found"));
     }
 
@@ -50,5 +52,9 @@ public class GameRoomService {
             room.setActive(false);
             gameRoomRepository.save(room);
         });
+    }
+
+    public Optional<GameRoomEntity> getGameRoomById(int roomId) {
+        return gameRoomRepository.findById(String.valueOf(roomId));
     }
 }

@@ -8,15 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
-
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class votesService {
 
     @Autowired
     private VotesRepo votesRepo;
+
+    @Autowired
+    private choiceService choiceService;
 
     public void saveVote(Votes vote) {
         votesRepo.save(vote);
@@ -30,21 +32,31 @@ public class votesService {
         return votesRepo.findAll();
     }
 
-    private void voteCounter(int choice){
-
+    public Map<Long, Long> voteCounter() {
+        List<Votes> allVotes = getAllVotes();
+        return allVotes.stream()
+                .collect(Collectors.groupingBy(vote -> vote.getChoice().getChoiceId(), Collectors.counting()));
     }
 
-    public void showVote(){
-
+    public Votes showVote() {
+        Map<Long, Long> voteMap = voteCounter();
+        Optional<Map.Entry<Long, Long>> mostVotedEntry = voteMap.entrySet().stream()
+                .max(Map.Entry.comparingByValue());
+        if (mostVotedEntry.isPresent()) {
+            Long mostVotedChoiceId = mostVotedEntry.get().getKey();
+            return getAllVotes().stream()
+                    .filter(vote -> vote.getChoice().getChoiceId().equals(mostVotedChoiceId))
+                    .findFirst()
+                    .orElse(null);
+        }
+        return null;
     }
 
-    public long getUserIdFromPayload(String payload){
+    public long getUserIdFromPayload(String payload) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(payload);
-            long userId = rootNode.get("userId").asLong();
-
-            return userId;
+            return rootNode.get("userId").asLong();
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
@@ -55,11 +67,10 @@ public class votesService {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(payload);
-            long choiceId = rootNode.get("choiceId").asLong();
-
-            return choiceId;
+            return rootNode.get("choiceId").asLong();
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
         }
-    }}
+    }
+}
