@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../../styles/instructionScreen.css';
+import '../../../styles/PhoneScreenStyles/InstructionStyles/instructionScreen.css';
 
 function InstructionComponent() {
   const navigate = useNavigate();

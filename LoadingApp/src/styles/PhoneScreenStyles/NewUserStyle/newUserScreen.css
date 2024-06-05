@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.font-vt323 {
+  font-family: 'VT323', monospace;
+}
+
+.bg-light-teal {
+  background-color: rgb(26, 142, 143); /* #1A8E8F */
+}
+
+.bg-dark-brown {
+  background-color: rgb(96, 80, 63); /* #60503F */
+}
+
+.bg-light-bg {
+  background-color: rgb(255, 239, 213); /* Light background color similar to prototype */
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.landscape {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble-left {
+  position: relative;
+}
+
+.bubble-left::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(26, 142, 143); /* Same as bg-light-teal */
+}
+
+.bubble-right {
+  position: relative;
+}
+
+.bubble-right::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent rgb(96, 80, 63) transparent transparent; /* Same as bg-dark-brown */
+}
+
+.character-img {
+  width: 100px; /* Default width */
+  height: 100px; /* Default height */
+}
+
+.large-character-img {
+  width: 200px; /* Increased width */
+  height: 200px; /* Increased height */
+}
+
+.divider {
+  width: 2px;
+  height: 100%;
+  background-color: #e0e0e0; /* Light gray divider */
+  margin: 0 20px;
+}
+
+input::placeholder {
+  color: #888; /* Placeholder text color */
+}
+
+.bg-dark {
+  background-color: rgb(77, 59, 43); /* Dark background for the outer container */
+}
+
+.bg-light-bg {
+  background-color: rgb(255, 239, 213); /* Background color for the inner container */
+}
+
+input {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+}
+
+button {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+}
+
+.next-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px; 
+  background-color: transparent; 
+  border: none; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.next-button img {
+  width: 70px;
+  margin-right: 8px; 
+}
+
+.next-button:hover {
+  opacity: 0.8;
+}
+
+.orientation-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; 
+  visibility: hidden; 
+}
+
+.orientation-warning.visible {
+  visibility: visible; 
+}
+
+.orientation-warning img {
+  max-width: 80%;
+  max-height: 80%;
+}

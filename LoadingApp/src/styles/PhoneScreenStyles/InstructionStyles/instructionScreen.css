@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* Font import */
+
+.font-vt323 {
+  font-family: 'VT323', monospace; /* Apply font */
+}
+
+.bg-light-teal {
+  background-color: rgb(26, 142, 143); /* Teal bubble */
+}
+
+.bg-dark-brown {
+  background-color: rgb(96, 80, 63); /* Brown bubble */
+}
+
+.bg-light-bg {
+  background-color: rgb(255, 239, 213); /* Background color */
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Fullscreen setup */
+}
+
+.landscape {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Center content */
+}
+
+.bubble-left {
+  position: relative;
+  background-color: rgb(26, 142, 143); /* Teal color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  margin-left: 10px; /* Margin left */
+}
+
+.bubble-left::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  border-width: 10px 20px 10px 0;
+  border-style: solid;
+  border-color: transparent rgb(26, 142, 143) transparent transparent; /* Teal arrow */
+}
+
+.bubble-right {
+  position: relative;
+  background-color: rgb(96, 80, 63); /* Brown color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  margin-right: 10px; /* Margin right */
+}
+
+.bubble-right::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  border-width: 10px 0 10px 20px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(96, 80, 63); /* Brown arrow */
+}
+
+.character-img {
+  width: 100px;
+  height: 100px; /* Character image size */
+}
+
+.next-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px; /* Increase the font size */
+  background-color: transparent; /* Make the button background transparent */
+  border: none; /* Remove the border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.next-button img {
+  width: 70px; /* Adjust the image size if needed */
+  margin-right: 8px; /* Space between the image and the text */
+}
+
+.next-button:hover {
+  opacity: 0.8; /* Add a hover effect */
+}
+
+.orientation-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Ensure it appears above all other content */
+  visibility: hidden; /* Hidden by default */
+}
+
+.orientation-warning img {
+  max-width: 80%;
+  max-height: 80%;
+}
