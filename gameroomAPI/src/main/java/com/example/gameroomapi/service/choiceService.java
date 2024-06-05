@@ -7,6 +7,7 @@ import com.example.gameroomapi.repo.QuestionsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,9 @@ public class choiceService {
             choice.setQuestions(questionOptional.get());
             choicesRepo.save(choice);
         }
+    }
+
+    public List<Choices> getAllChoices() {
+        return choicesRepo.findAll();
     }
 }
