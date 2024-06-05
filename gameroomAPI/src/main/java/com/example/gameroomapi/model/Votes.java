@@ -28,7 +28,4 @@ public class Votes {
         this.playerUser = playerUser;
         this.choice = choice;
     }
-
-
-
 }

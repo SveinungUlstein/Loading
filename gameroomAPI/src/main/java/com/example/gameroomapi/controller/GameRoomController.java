@@ -1,9 +1,15 @@
-package com.example.gameroomapi;
+package com.example.gameroomapi.controller;
 
+import com.example.gameroomapi.model.GameRoomEntity;
+import com.example.gameroomapi.model.PlayerUser;
+import com.example.gameroomapi.service.GameRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/gameroom")
@@ -26,9 +32,19 @@ public class GameRoomController {
     }
 
     @GetMapping("/lobby")
-    public ResponseEntity<GameRoomEntity> getPlayers(@RequestParam int roomId) {
-        GameRoomEntity gameRoom = gameRoomService.showPlayerList(roomId);
+    public ResponseEntity<GameRoomEntity> getLobby(@RequestParam int roomId) {
+        GameRoomEntity gameRoom = gameRoomService.showRoomList(roomId);
         return new ResponseEntity<>(gameRoom, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/players")
+    public ResponseEntity<List<PlayerUser>> getPlayers(@RequestParam int roomId) {
+        Optional<GameRoomEntity> gameRoom = gameRoomService.getGameRoomById(roomId);
+        if (gameRoom == null) {
+            return ResponseEntity.notFound().build();
+        }
+        List<PlayerUser> players = gameRoom.get().getPlayers();
+        return ResponseEntity.ok(players);
     }
 
     @GetMapping("/status/{id}")
