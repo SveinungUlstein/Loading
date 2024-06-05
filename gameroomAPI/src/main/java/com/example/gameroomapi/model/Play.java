@@ -16,7 +16,7 @@ public class Play {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "play_seq_gen")
     @SequenceGenerator(name = "play_seq_gen",sequenceName = "play_seq",allocationSize = 1)
     @Column(name = "playId",nullable = false)
-    private Long playId = 0L;
+    private Long playId;
 
     @Column(name = "playName",nullable = false)
     private String playName;
