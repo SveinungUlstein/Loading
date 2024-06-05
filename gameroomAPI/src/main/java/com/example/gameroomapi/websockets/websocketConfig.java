@@ -1,4 +1,4 @@
-package com.example.gameroomapi;
+package com.example.gameroomapi.websockets;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

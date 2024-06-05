@@ -12,17 +12,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.IOException;
 import com.google.zxing.WriterException;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
-@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
+@SpringBootApplication
 public class GameroomApiApplication {
 
     @Autowired
     private GameRoomService gameRoomService;
 
     public static void main(String[] args) {
-        SpringApplication.run(GameroomApiApplication.class, args);
+                SpringApplication.run(GameroomApiApplication.class, args);
     }
 
     @PostConstruct
