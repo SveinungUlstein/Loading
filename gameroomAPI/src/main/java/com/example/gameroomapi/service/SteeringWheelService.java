@@ -1,5 +1,11 @@
-package com.example.steeringwheel;
+package com.example.gameroomapi.service;
 
+import com.example.gameroomapi.model.SaveImage;
+import com.example.gameroomapi.model.SteeringWheelEntity;
+import com.example.gameroomapi.model.WriteText;
+import com.example.gameroomapi.repo.SaveImageRepository;
+import com.example.gameroomapi.repo.SteeringWheelRepository;
+import com.example.gameroomapi.repo.WriteTextRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

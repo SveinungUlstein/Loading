@@ -1,4 +1,4 @@
-package com.example.steeringwheel;
+package com.example.gameroomapi.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
