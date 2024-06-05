@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating-stars-component';
-import '../../../styles/PhoneScreenStyles/NewUserStyle/newUserScreen.css'; // Adjust this import to your actual CSS file location
+import '../../../styles/PhoneScreenStyles/NewUserStyle/newUserScreen.css'; 
 
 function PhoneRatingComponent() {
   const navigate = useNavigate();
@@ -67,9 +67,9 @@ function PhoneRatingComponent() {
           <button
             className="mt-4 px-4 py-2 text-black rounded"
             onClick={handleSubmit}
-            style={{ fontFamily: 'VT323, monospace', backgroundColor: 'rgba(231, 227, 193, 1)' }} // Use the project's font and new color
+            style={{ fontFamily: 'VT323, monospace', backgroundColor: 'rgba(231, 227, 193, 1)' }} 
           >
-            Submit
+            Submit Rating
           </button>
         </div>
       )}

@@ -1,118 +1,134 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* Font import */
 
+/* Class to apply the VT323 font family */
 .font-vt323 {
   font-family: 'VT323', monospace; /* Apply font */
 }
 
+/* Light teal background color */
 .bg-light-teal {
   background-color: rgb(26, 142, 143); /* Teal bubble */
 }
 
+/* Dark brown background color */
 .bg-dark-brown {
   background-color: rgb(96, 80, 63); /* Brown bubble */
 }
 
+/* Light background color */
 .bg-light-bg {
   background-color: rgb(255, 239, 213); /* Background color */
 }
 
+/* Fullscreen setup for html, body, and root elements */
 html, body, #root {
-  height: 100%;
-  width: 100%;
-  overflow: hidden; /* Fullscreen setup */
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
+  overflow: hidden; /* Hide overflow */
 }
 
+/* Flex container with centered content for landscape orientation */
 .landscape {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center; /* Center content */
+  display: flex; /* Flexbox layout */
+  flex-direction: row; /* Horizontal direction */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
 }
 
+/* Left speech bubble style */
 .bubble-left {
-  position: relative;
+  position: relative; /* Relative positioning */
   background-color: rgb(26, 142, 143); /* Teal color */
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  max-width: 300px;
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding */
+  border-radius: 10px; /* Rounded corners */
+  max-width: 300px; /* Max width */
   margin-left: 10px; /* Margin left */
 }
 
+/* Arrow for the left speech bubble */
 .bubble-left::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -20px;
-  transform: translateY(-50%);
-  border-width: 10px 20px 10px 0;
-  border-style: solid;
-  border-color: transparent rgb(26, 142, 143) transparent transparent; /* Teal arrow */
+  content: ''; /* Empty content */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: -20px; /* Position to the left */
+  transform: translateY(-50%); /* Center alignment */
+  border-width: 10px 20px 10px 0; /* Arrow size */
+  border-style: solid; /* Solid border */
+  border-color: transparent rgb(26, 142, 143) transparent transparent; /* Arrow color */
 }
 
+/* Right speech bubble style */
 .bubble-right {
-  position: relative;
+  position: relative; /* Relative positioning */
   background-color: rgb(96, 80, 63); /* Brown color */
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  max-width: 300px;
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding */
+  border-radius: 10px; /* Rounded corners */
+  max-width: 300px; /* Max width */
   margin-right: 10px; /* Margin right */
 }
 
+/* Arrow for the right speech bubble */
 .bubble-right::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -20px;
-  transform: translateY(-50%);
-  border-width: 10px 0 10px 20px;
-  border-style: solid;
-  border-color: transparent transparent transparent rgb(96, 80, 63); /* Brown arrow */
+  content: ''; /* Empty content */
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  right: -20px; /* Position to the right */
+  transform: translateY(-50%); /* Center alignment */
+  border-width: 10px 0 10px 20px; /* Arrow size */
+  border-style: solid; /* Solid border */
+  border-color: transparent transparent transparent rgb(96, 80, 63); /* Arrow color */
 }
 
+/* Character image size */
 .character-img {
-  width: 100px;
-  height: 100px; /* Character image size */
+  width: 100px; /* Image width */
+  height: 100px; /* Image height */
 }
 
+/* Next button style */
 .next-button {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  position: absolute; /* Absolute positioning */
+  bottom: 20px; /* Position at the bottom */
+  right: 20px; /* Position at the right */
   font-size: 24px; /* Increase the font size */
   background-color: transparent; /* Make the button background transparent */
   border: none; /* Remove the border */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  cursor: pointer; /* Pointer cursor */
 }
 
+/* Style for the image inside the next button */
 .next-button img {
-  width: 70px; /* Adjust the image size if needed */
+  width: 70px; /* Adjust the image size */
   margin-right: 8px; /* Space between the image and the text */
 }
 
+/* Hover effect for the next button */
 .next-button:hover {
   opacity: 0.8; /* Add a hover effect */
 }
 
+/* Warning for incorrect orientation */
 .orientation-warning {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
   z-index: 9999; /* Ensure it appears above all other content */
   visibility: hidden; /* Hidden by default */
 }
 
+/* Style for the image inside the orientation warning */
 .orientation-warning img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 80%; /* Max width */
+  max-height: 80%; /* Max height */
 }

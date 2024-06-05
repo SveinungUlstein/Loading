@@ -16,7 +16,7 @@ function TestPage(){
     axios.get(`http://localhost:8080/gameroom/status/${id}`)
       .then((response) => {
         console.log('Data received:', response.data);
-        setResponseData(response.data); // Set the received data
+        setResponseData(response.data);
         setGameRoomStatus(response.data);
         setLoading(false);
       })
@@ -66,7 +66,7 @@ function TestPage(){
         </button>
         {loading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
-        {responseData && ( // Render if responseData exists
+        {responseData && ( 
           <div className="mt-4 text-left">
             <h3 className="text-xl text-gray-900 font-bold">Response Data:</h3>
             <pre>{JSON.stringify(responseData, null, 2)}</pre>

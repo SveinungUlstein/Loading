@@ -1,20 +1,103 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../../styles/PhoneScreenStyles/phoneVotingStyles/phonevoting.css'; 
 
 function PhoneVotingComponent() {
   const navigate = useNavigate();
+  const [timeLeft, setTimeLeft] = useState(9);
+  const [orientationLocked, setOrientationLocked] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
+
+  useEffect(() => {
+    const lockOrientation = async () => {
+      if (screen.orientation && screen.orientation.lock) {
+        try {
+          await screen.orientation.lock('landscape');
+          setOrientationLocked(true);
+        } catch (error) {
+          console.error('Failed to lock orientation:', error);
+          setOrientationLocked(false);
+          setShowPopup(true);
+          setTimeout(() => setShowPopup(false), 5000);
+        }
+      } else {
+        setOrientationLocked(false);
+        setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 5000);
+      }
+    };
+
+    const handleOrientationChange = () => {
+      if (window.innerHeight > window.innerWidth) {
+        setIsPortrait(true);
+      } else {
+        setIsPortrait(false);
+      }
+    };
+
+    lockOrientation();
+    handleOrientationChange();
+    window.addEventListener('orientationchange', handleOrientationChange);
+    window.addEventListener('resize', handleOrientationChange);
+
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      window.removeEventListener('resize', handleOrientationChange);
+      if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime > 0) {
+          return prevTime - 1;
+        } else {
+          clearInterval(timer);
+          navigate('/');
+          return 0;
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [navigate]);
+
+  const handleClick = (choice) => {
+    console.log(`You clicked ${choice}`);
+    // Add any effect or logic on click
+  };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900">Phone Voting Page</h2>
-        <p className="text-gray-600">Velkommen til Phone Voting Page. Genereres nå av component</p>
-        <button
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
+    <div className="flex items-center justify-center h-screen" style={{ backgroundColor: 'rgba(77,59,43,255)' }}>
+      <div className="p-6 max-w-sm mx-auto bg-brown rounded-xl shadow-md space-y-4 text-center">
+        <div className="grid grid-cols-2 gap-4">
+          <button
+            className="p-4 border rounded-lg hover:bg-yellow-200 cursor-pointer"
+            onClick={() => handleClick('bow')}
+          >
+            <img src="src/images/Bow and arrow button.png" alt="Bow and Arrow Button" className="button-img" />
+          </button>
+          <button
+            className="p-4 border rounded-lg hover:bg-yellow-200 cursor-pointer"
+            onClick={() => handleClick('axe')}
+          >
+            <img src="src/images/Axe button.png" alt="Axe Button" className="button-img" />
+          </button>
+        </div>
+        <p className="mt-4 text-lg text-yellow">{timeLeft} sekunder igjen å stemme...</p>
+        <div className="time-bar-container">
+          <div
+            className="time-bar"
+            style={{ width: `${(timeLeft / 9) * 100}%` }}
+          />
+        </div>
+      </div>
+      <div className={`orientation-warning ${isPortrait ? 'visible' : ''}`}>
+        <img src="src/images/turnphone.png" alt="Please rotate your device" />
       </div>
     </div>
   );
