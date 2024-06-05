@@ -13,7 +13,7 @@ public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feedback_seq_gen")
     @SequenceGenerator(name = "feedback_seq_gen", sequenceName = "feedback_seq",allocationSize = 1)
-    @Column(name = "feedbackID",nullable = false)
+    @Column(name = "feedbackId",nullable = false, columnDefinition = "bigint default 0")
     private Long feedbackID = 0L;
 
     @Column(name = "feedbackTxt",nullable = false)
