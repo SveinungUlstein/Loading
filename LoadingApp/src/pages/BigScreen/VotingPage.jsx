@@ -8,7 +8,7 @@ import '../../styles/VotingPageStyles/votingPage.css';
 const VotingPage = () => {
   return (
     <div className="voting-container flex flex-col justify-center items-center h-screen">
-      <VotingText text="{mainText}" /> 
+      <VotingText text="{mainText}"/>
       {/* Maintext skal kunne endres fra admin */}
       <VotingHighlight text="Ta opp telefonen nå og STEM" />
       <div className="absolute bottom-4 left-4">
