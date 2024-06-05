@@ -55,13 +55,13 @@ function InstructionComponent() {
       <div className="flex flex-row items-start space-x-4 p-4">
         <div className="flex flex-col items-start space-y-20">
           <div className="flex items-center">
-            <img src="/src/images/snakkejente.png" alt="Character 1" className="character-img"/>
+            <img src="/src/images/karakter3.png" alt="Character 1" className="character-img"/>
             <div className="bubble-left">
               <p>Valgene du tar underveis i forestillingen vil påvirke historien vår</p>
             </div>
           </div>
           <div className="flex items-center">
-            <img src="/src/images/snakkejente.png" alt="Character 1" className="character-img"/>
+            <img src="/src/images/karakter3.png" alt="Character 1" className="character-img"/>
             <div className="bubble-left">
               <p>Det valget med mest stemmer bestemmer hva vi gjør</p>
             </div>
@@ -72,7 +72,7 @@ function InstructionComponent() {
             <div className="bubble-right">
               <p>Du har 30 sekunder på å bestemme deg</p>
             </div>
-            <img src="src/images/snakkegutt.png" alt="Character 2" className="character-img"/>
+            <img src="src/images/karakter1.png" alt="Character 2" className="character-img"/>
           </div>
         </div>
       </div>

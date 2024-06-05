@@ -60,11 +60,6 @@ html, body, #root {
 .character-img {
   width: 100px; /* Default width */
   height: 100px; /* Default height */
-  transition: transform 0.2s ease; /* Smooth transition */
-}
-
-.character-img:hover {
-  transform: scale(1.2); /* Enlarge on hover */
 }
 
 .large-character-img {
@@ -129,7 +124,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(255, 255, 255, 0.3); /* Adjusted opacity for more see-through effect */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,10 +172,6 @@ button {
   .character-img {
     width: 60px; /* Further reduced width for landscape mode */
     height: 60px; /* Further reduced height for landscape mode */
-  }
-
-  .character-img:hover {
-    transform: scale(1.5); /* Slightly enlarge on hover for landscape mode */
   }
 
   .p-6 {
