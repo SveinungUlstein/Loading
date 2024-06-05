@@ -23,7 +23,7 @@ html, body {
 
 .title-text {
   @apply text-mustard font-vt323 font-bold;
-  font-size: 10rem; /* Egendefinert tekststørrelse */
+  font-size: 10rem;
 }
 
 
