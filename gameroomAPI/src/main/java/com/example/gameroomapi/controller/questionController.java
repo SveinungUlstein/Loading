@@ -28,8 +28,8 @@ public class questionController {
     @Autowired
     private questionService questionService;
 
-
-    @GetMapping("/all")
+    @CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+    @GetMapping()
     public ResponseEntity<List<Questions>> getAllQuestions() {
         List<Questions> allQuestions = questionService.getAllQuestions();
         return ResponseEntity.ok(allQuestions);

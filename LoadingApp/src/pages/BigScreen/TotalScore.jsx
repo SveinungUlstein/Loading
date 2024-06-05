@@ -1,6 +1,7 @@
 import React from 'react';
 import ChoiceBox from '../../components/BigScreen/TotalScore/ChoiceBox';
 import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
+import ArrowNavigationLeft from "../../components/Common/ArrowNavigationLeft.jsx";
 import '../../styles/TotalScorePageStyles/totalScore.css'
 
 const TotalScore = () => {
@@ -38,7 +39,7 @@ const TotalScore = () => {
         ))}
       </div>
       <div className="absolute bottom-4 left-4">
-        <ArrowNavigationRight nextPage="/score" />
+        <ArrowNavigationLeft nextPage="/score" />
       </div> 
       <div className="absolute bottom-4 right-4">
         <ArrowNavigationRight nextPage="/rating" />
