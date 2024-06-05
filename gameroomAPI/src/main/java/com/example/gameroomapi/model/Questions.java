@@ -21,7 +21,7 @@ public class Questions {
     @Column(name = "questionTxt", nullable = false)
     private String questionTxt;
 
-    @Column(name = "questionImage", nullable = false)
+    @Column(name = "questionImage", nullable = true)
     private byte[] questionImage;
 
     @Column(name = "time", nullable = false)

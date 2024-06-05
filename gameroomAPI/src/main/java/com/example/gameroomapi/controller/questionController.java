@@ -28,7 +28,7 @@ public class questionController {
     @Autowired
     private questionService questionService;
 
-
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/all")
     public ResponseEntity<List<Questions>> getAllQuestions() {
         List<Questions> allQuestions = questionService.getAllQuestions();
