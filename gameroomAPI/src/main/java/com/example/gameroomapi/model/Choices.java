@@ -13,7 +13,7 @@ public class Choices {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "choices_seq_gen")
     @SequenceGenerator(name = "choices_seq_gen", sequenceName = "choices_seq", allocationSize = 1)
-    @Column(name = "choice_id", nullable = true)
+    @Column(name = "choice_id", nullable = false, columnDefinition = "bigint default 0")
     private Long choiceId;
 
     @Column(name = "choiceTxt",nullable = true)

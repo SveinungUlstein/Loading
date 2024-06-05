@@ -12,7 +12,7 @@ public class AdminUser {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "adminUser_seq_gen")
     @SequenceGenerator(name = "adminUser_seq_gen",sequenceName = "adminUser_seq",allocationSize = 1)
-    @Column(name = "adminId",nullable = false)
+    @Column(name = "adminId",nullable = false, columnDefinition = "bigint default 0")
     private Long adminId = 0L;
 
     @Column(name = "username",nullable = false)
