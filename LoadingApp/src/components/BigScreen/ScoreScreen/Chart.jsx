@@ -1,6 +1,6 @@
 import React from 'react';
 import ChartItem from './ChartItem';
-import '../../../styles/chart.css';
+import '../../../styles/ScorePageStyles/chart.css';
 
 const Chart = ({ data, images }) => {
   return (

@@ -1,4 +1,4 @@
-package com.example.gameroomapi;
+package com.example.gameroomapi.websockets;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +13,8 @@ public class websocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(webSocketHandler(), "/status/{id}")
-                .setAllowedOrigins("*");
+        registry.addHandler(webSocketHandler(), "/lobby")
+                .setAllowedOrigins("http://localhost:5173/");
     }
 
     @Bean
