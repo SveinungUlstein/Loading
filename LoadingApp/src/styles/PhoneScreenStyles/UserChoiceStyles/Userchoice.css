@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* Font import */
+
+/* Font family VT323 applied */
+.font-vt323 {
+  font-family: 'VT323', monospace; /* Apply font */
+}
+
+/* Light background color */
+.bg-light-bg {
+  background-color: rgb(255, 239, 213); /* Background color */
+}
+
+/* Fullscreen setup */
+html, body, #root {
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Landscape mode layout */
+.landscape-mode {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column direction */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  position: relative; /* Relative positioning */
+}
+
+/* Container for choices */
+.choice-container {
+  text-align: center; /* Center align text */
+}
+
+/* Header for choices */
+.choice-header {
+  background-color: rgb(96, 80, 63); /* Brown color */
+  color: rgb(222, 170, 55, 255); /* Text color */
+  padding: 10px 20px; /* Padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 2rem; /* Font size */
+  margin-bottom: 20px; /* Bottom margin */
+}
+
+/* Individual choice style */
+.choice {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items vertically */
+  background-color: rgb(231, 227, 193, 255); /* Light background */
+  color: black; /* Text color */
+  border: 2px solid black; /* Border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding */
+  margin: 10px 0; /* Vertical margin */
+}
+
+/* Image inside a choice */
+.choice img {
+  margin-right: 10px; /* Margin right */
+}
+
+/* Warning for incorrect orientation */
+.orientation-warning {
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  z-index: 9999; /* Ensure it appears above all other content */
+  visibility: hidden; /* Hidden by default */
+}
+
+/* Style for the image inside the orientation warning */
+.orientation-warning img {
+  max-width: 80%; /* Max width */
+  max-height: 80%; /* Max height */
+}
+
+/* Make the orientation warning visible */
+.orientation-warning.visible {
+  visibility: visible; /* Show warning when in portrait mode */
+}
+
+/* Character image size */
+.character-img {
+  width: 50px; /* Image width */
+  height: 50px; /* Image height */
+  margin-right: 10px; /* Margin right */
+}
+
+/* Next button style */
+.next-button {
+  position: absolute; /* Absolute positioning */
+  bottom: 20px; /* Positioned at the bottom */
+  right: 20px; /* Positioned at the right */
+  font-size: 24px; /* Font size */
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* Hover effect for next button */
+.next-button:hover {
+  opacity: 0.8; /* Reduced opacity on hover */
+}
+
+/* Header style */
+.header {
+  background-color: rgb(96, 80, 63); /* Background color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding */
+  font-size: 2rem; /* Font size */
+  margin-bottom: 20px; /* Bottom margin */
+  text-align: center; /* Center align text */
+}
+
+/* Container style */
+.container {
+  border: 2px solid black; /* Border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding */
+  margin: 10px 0; /* Vertical margin */
+  background-color: rgb(255, 239, 213); /* Background color */
+}

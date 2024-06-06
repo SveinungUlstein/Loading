@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/votes")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class VotesController {
 
     @Autowired
@@ -34,6 +34,12 @@ public class VotesController {
     public ResponseEntity<Votes> showMostVoted() {
         Votes mostVoted = votesService.showVote();
         return ResponseEntity.ok(mostVoted);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Votes>> getVotesByUserId(@PathVariable Long userId) {
+        List<Votes> userVotes = votesService.getVotesByUserId(userId);
+        return ResponseEntity.ok(userVotes);
     }
 
     @PostMapping("/cast")
