@@ -6,7 +6,7 @@ const SoMeComponent = () => {
       <p className="mb-2">Følg oss videre</p>
       <p className="mb-2">www.loading.no/om_oss</p>
       <div className="instagram-section">
-        <img src="/path/to/instagram-icon.png" alt="Instagram" className="instagram-icon" />
+        <img src="/src/images/InstaLogo.png" alt="Instagram" className="instagram-icon" />
         <p>@loading</p>
       </div>
     </div>

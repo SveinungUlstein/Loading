@@ -6,7 +6,7 @@ import '../../styles/TotalScorePageStyles/totalScore.css'
 
 const TotalScore = () => {
   const mainChoice = {
-    imageSrc: "/path/to/bow-and-arrow.png",
+    imageSrc: "/src/images/PilOgBue.png",
     altText: "Pil og bue",
     additionalText: "... beseiret trollet med pil og bue",
     scoreText: "53 spillere valgte pil og bue"
