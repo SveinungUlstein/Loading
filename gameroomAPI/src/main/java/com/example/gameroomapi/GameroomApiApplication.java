@@ -25,7 +25,7 @@ public class GameroomApiApplication {
     public static void main(String[] args) {
                 SpringApplication.run(GameroomApiApplication.class, args);
     }
-
+//kukeri
     @PostConstruct
     public void createEmptyRoomWithQrCode() {
         GameRoomEntity emptyRoom = gameRoomService.createGameRoom();
