@@ -1,7 +1,6 @@
 package com.example.gameroomapi.service;
 
 import com.example.gameroomapi.model.Questions;
-import com.example.gameroomapi.model.Votes;
 import com.example.gameroomapi.repo.QuestionsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,8 @@ public class questionService {
         return questionRepo.findAll();
     }
 
-    public void saveQuestion(Questions questions) {
-        questionRepo.save(questions);
+    public Questions saveQuestion(Questions questions) {
+       return questionRepo.save(questions);
     }
 }
 
