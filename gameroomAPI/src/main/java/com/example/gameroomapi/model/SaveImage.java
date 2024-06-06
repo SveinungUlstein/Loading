@@ -9,12 +9,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "QUESTIONS")
+@Entity
+@Table(name = "QUESTIONS")
 public class SaveImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "QUESTION_ID")
     private Long questionId;
     @Lob
+    @Column(name = "QUESTION_IMAGE")
     private byte [] questionImage;
 }
