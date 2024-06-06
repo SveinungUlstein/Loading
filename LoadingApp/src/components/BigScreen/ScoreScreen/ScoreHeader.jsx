@@ -3,7 +3,7 @@ import '../../../styles/ScorePageStyles/chart.css';
 
 const ScoreHeader = () => {
   return (
-    <div className="score-header bg-brown text-mustard p-4">
+    <div className="score-header">
       SCORE
     </div>
   );

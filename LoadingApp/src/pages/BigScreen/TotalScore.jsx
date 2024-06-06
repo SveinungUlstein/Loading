@@ -3,6 +3,7 @@ import ChoiceBox from '../../components/BigScreen/TotalScore/ChoiceBox';
 import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
 import ArrowNavigationLeft from "../../components/Common/ArrowNavigationLeft.jsx";
 import '../../styles/TotalScorePageStyles/totalScore.css'
+import '../../styles/Common/Header.css';
 
 const TotalScore = () => {
   const mainChoice = {
@@ -22,9 +23,9 @@ const TotalScore = () => {
   ];
 
   return (
-    <div className="total-score-container bg-cream p-8 h-screen">
-      <h1 className="total-score-title text-5xl font-vt323 text-mustard bg-brown mb-4 text-center">TOTAL SCORE</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="total-score-container bg-cream h-screen">
+      <h1 className="score-header">TOTAL SCORE</h1>
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
         <ChoiceBox
           imageSrc={mainChoice.imageSrc}
           altText={mainChoice.altText}

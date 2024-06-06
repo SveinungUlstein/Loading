@@ -7,8 +7,9 @@ import ArrowNavigationLeft from '../../components/Common/ArrowNavigationLeft';
 import useChoicesAndVotes from '../../hooks/useChoiceAndVotes';
 import Chart from '../../components/BigScreen/ScoreScreen/Chart';
 import '../../styles/ScorePageStyles/scorePage.css';
-import '../../styles/ScorePageStyles/scoreHeader.css';
-import '../../styles/ScorePageStyles/chart.css';
+import '../../styles/Common/Header.css';
+
+
 
 const ScorePage = () => {
   const { choices, votes, error } = useChoicesAndVotes();
