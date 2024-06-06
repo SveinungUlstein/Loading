@@ -6,13 +6,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "QUESTIONS")
+@Entity(name = "ADMINQUESTIONS")
 
 public class WriteText {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long questionId;
+    private Long adminQuestionId;
 
-    private String questionTxt;
+    private String adminQuestionTxt;
 }
