@@ -30,7 +30,6 @@ public class GameRoomController {
         }
         return roomId;
     }
-
     private void setCurrentRoomId(int roomId) {
         httpSession.setAttribute("roomId", roomId);
     }

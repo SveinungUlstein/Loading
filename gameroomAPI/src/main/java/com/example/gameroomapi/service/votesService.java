@@ -18,9 +18,6 @@ public class votesService {
     @Autowired
     private VotesRepo votesRepo;
 
-    @Autowired
-    private choiceService choiceService;
-
     public void saveVote(Votes vote) {
         votesRepo.save(vote);
     }
@@ -65,7 +62,7 @@ public class votesService {
         return null;
     }
 
-    public long getUserIdFromPayload(String payload) {
+    public long getUserFromPayload(String payload) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(payload);
@@ -76,7 +73,7 @@ public class votesService {
         }
     }
 
-    public long getChoiceIdFromPayload(String payload) {
+    public long getChoiceFromPayload(String payload) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(payload);
