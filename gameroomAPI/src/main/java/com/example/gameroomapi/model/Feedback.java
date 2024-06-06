@@ -13,10 +13,10 @@ public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feedback_seq_gen")
     @SequenceGenerator(name = "feedback_seq_gen", sequenceName = "feedback_seq",allocationSize = 1)
-    @Column(name = "feedbackID",nullable = false)
-    private Long feedbackID = 0L;
+    @Column(name = "feedbackId",nullable = true, columnDefinition = "bigint default 0")
+    private Long feedbackID;
 
-    @Column(name = "feedbackTxt",nullable = false)
+    @Column(name = "feedbackTxt",nullable = true)
     private String feedbackTxt;
 
     @Column(name = "stars",nullable = false)

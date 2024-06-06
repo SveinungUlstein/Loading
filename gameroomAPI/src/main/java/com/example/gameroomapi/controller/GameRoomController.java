@@ -1,4 +1,5 @@
 package com.example.gameroomapi.controller;
+
 import com.example.gameroomapi.model.GameRoomEntity;
 import com.example.gameroomapi.model.PlayerUser;
 import com.example.gameroomapi.service.GameRoomService;
@@ -7,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/gameroom")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173")
 public class GameRoomController {
 
     @Autowired
@@ -20,6 +22,7 @@ public class GameRoomController {
 
     @Autowired
     private HttpSession httpSession;
+
     private int getCurrentRoomId() {
         Integer roomId = (Integer) httpSession.getAttribute("roomId");
         if (roomId == null) {
@@ -32,22 +35,25 @@ public class GameRoomController {
         httpSession.setAttribute("roomId", roomId);
     }
 
-    @PostMapping("/lobby")
+    @PostMapping("/create")
     public ResponseEntity<GameRoomEntity> createGameRoom() {
         GameRoomEntity gameRoom = gameRoomService.createGameRoom();
         setCurrentRoomId(gameRoom.getId());
         return new ResponseEntity<>(gameRoom, HttpStatus.CREATED);
     }
 
-    @PostMapping("/join")
-    public ResponseEntity<GameRoomEntity> joinGameRoom(@RequestParam Long userId, @RequestParam String username, @RequestParam Integer avatar, @RequestParam String cookie) {
+    @GetMapping("/join")
+    public ResponseEntity<GameRoomEntity> joinGameRoom(@RequestParam String username, @RequestParam Integer avatar) {
+        httpSession.setAttribute("username", username);
+        httpSession.setAttribute("avatar", avatar);
         int roomId = getCurrentRoomId();
-        GameRoomEntity gameRoom = gameRoomService.joinRoom(roomId, userId, username, avatar, cookie);
+        GameRoomEntity gameRoom = gameRoomService.joinRoom(roomId, null, username, avatar, null);
+        setCurrentRoomId(gameRoom.getId());
         return new ResponseEntity<>(gameRoom, HttpStatus.OK);
     }
 
-    @GetMapping("/lobby")
-    public ResponseEntity<GameRoomEntity> getLobby() {
+    @GetMapping("/currentRoom")
+    public ResponseEntity<GameRoomEntity> getCurrentRoom() {
         int roomId = getCurrentRoomId();
         GameRoomEntity gameRoom = gameRoomService.showRoomList(roomId);
         return new ResponseEntity<>(gameRoom, HttpStatus.OK);
@@ -71,7 +77,7 @@ public class GameRoomController {
         return new ResponseEntity<>(isActive, HttpStatus.OK);
     }
 
-    @PostMapping("/finish")
+    @GetMapping("/finish")
     public ResponseEntity<Void> finishGameRoom() {
         int roomId = getCurrentRoomId();
         gameRoomService.finishGameRoom(roomId);
