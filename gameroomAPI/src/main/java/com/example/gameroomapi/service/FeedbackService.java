@@ -24,4 +24,14 @@ public class FeedbackService {
     public Feedback createFeedback(Feedback feedback){
         return feedbackRepo.save(feedback);
     }
+    public Feedback updateFeedback(Long id, Feedback feedbackDetails){
+        Feedback feedback = feedbackRepo.findById(id).orElseThrow(() -> new RuntimeException("Feedback no id i think:3"+ id));
+        feedback.setFeedbackTxt(feedbackDetails.getFeedbackTxt());
+        feedback.setStars(feedbackDetails.getStars());
+        return feedbackRepo.save(feedback);
+    }
+    public void deleteFeedback(Long id) {
+        Feedback feedback = feedbackRepo.findById(id).orElseThrow(() -> new RuntimeException("Feedback not found with id " + id));
+        feedbackRepo.delete(feedback);
+    }
 }
