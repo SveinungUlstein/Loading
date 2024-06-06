@@ -4,6 +4,7 @@ import com.example.gameroomapi.model.Votes;
 import com.example.gameroomapi.repo.VotesRepo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +29,20 @@ public class votesService {
         return votesRepo.findById(id);
     }
 
+    @Transactional
     public List<Votes> getAllVotes() {
-        return votesRepo.findAll();
+        List<Votes> votes = votesRepo.findAll();
+        votes.forEach(vote -> {
+            vote.getPlayerUser().getUserId();
+            vote.getChoice().getChoiceId();
+        });
+        return votes;
+    }
+
+    public List<Votes> getVotesByUserId(Long userId) {
+        return votesRepo.findAll().stream()
+                .filter(vote -> vote.getPlayerUser().getUserId().equals(userId))
+                .collect(Collectors.toList());
     }
 
     public Map<Long, Long> voteCounter() {

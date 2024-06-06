@@ -19,7 +19,7 @@ public class choiceController {
     private choiceService choiceService;
 
     @GetMapping
-    public ResponseEntity<List<Choices>> getAllPlayerUsers() {
+    public ResponseEntity<List<Choices>> getAllChoicesUsers() {
         List<Choices> choices = choiceService.getAllChoices();
         return new ResponseEntity<>(choices, HttpStatus.OK);
     }
@@ -29,6 +29,7 @@ public class choiceController {
         choiceService.saveChoice(choice, questionId);
         return ResponseEntity.status(HttpStatus.CREATED).body("Choice created successfully");
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Choices> getChoiceById(@PathVariable Long id) {

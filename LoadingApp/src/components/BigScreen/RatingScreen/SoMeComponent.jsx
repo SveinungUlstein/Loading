@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const SoMeComponent = () => {
@@ -14,3 +15,4 @@ const SoMeComponent = () => {
 };
 
 export default SoMeComponent;
+

@@ -30,10 +30,13 @@ public class playerUserController {
     }
 
     @PostMapping
-    public ResponseEntity<PlayerUser> createPlayerUser(@RequestBody PlayerUser playerUser) {
+    public ResponseEntity<PlayerUser> createPlayerUser(@RequestParam PlayerUser playerUser) {
+        String generatedCookie = generateCookieValue();
+        playerUser.setCookie(generatedCookie);
         PlayerUser createdPlayer = playerUserService.savePlayerUser(playerUser);
         return new ResponseEntity<>(createdPlayer, HttpStatus.CREATED);
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<PlayerUser> updatePlayerUser(@PathVariable Long id, @RequestBody PlayerUser playerUser) {
@@ -45,5 +48,8 @@ public class playerUserController {
     public ResponseEntity<Void> deletePlayerUser(@PathVariable Long id) {
         boolean deleted = playerUserService.deletePlayerUser(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+    }
+    private String generateCookieValue() {
+        return java.util.UUID.randomUUID().toString();
     }
 }

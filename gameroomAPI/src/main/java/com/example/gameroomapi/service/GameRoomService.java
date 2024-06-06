@@ -1,8 +1,8 @@
 package com.example.gameroomapi.service;
 
 import com.example.gameroomapi.model.GameRoomEntity;
-import com.example.gameroomapi.model.PlayerUser;
 import com.example.gameroomapi.repo.GameRoomRepository;
+import com.example.gameroomapi.model.PlayerUser;
 import com.example.gameroomapi.repo.PlayerUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,14 +21,14 @@ public class GameRoomService {
     public GameRoomEntity createGameRoom() {
         GameRoomEntity gameRoom = new GameRoomEntity();
         gameRoom.setActive(true);
-        gameRoom.setQrCodeData("http://localhost:5173/lobby");
+        gameRoom.setQrCodeData("http://localhost:8080/gameroom/join");
         return gameRoomRepository.save(gameRoom);
     }
 
     public GameRoomEntity joinRoom(int roomId, Long userId, String username, Integer avatar, String cookie) {
         return gameRoomRepository.findById(String.valueOf(roomId)).map(gameRoom -> {
             PlayerUser playerUser = playerUserRepo.findById(userId).orElseGet(() -> {
-                PlayerUser newPlayer = new PlayerUser(userId, username, avatar, cookie);
+                PlayerUser newPlayer = new PlayerUser();
                 return playerUserRepo.save(newPlayer);
             });
             if (!gameRoom.getPlayers().contains(playerUser)) {

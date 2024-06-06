@@ -8,8 +8,8 @@
   
   .some-component {
     text-align: center;
-    color: #DEA937; /* Mustard color */
-    font-size: 4vh;
+    color: #4E3B2B;
+    font-size: 5vh;
   }
   
   .some-component p {
@@ -24,9 +24,9 @@
   }
   
   .instagram-icon {
-    height: 2rem; /* Adjust size as needed */
-    width: 2rem; /* Adjust size as needed */
-    margin-right: 0.5rem;
+    height: 9rem; /* Adjust size as needed */
+    width: 12rem; /* Adjust size as needed */
+
   }
   
   .text-section {
