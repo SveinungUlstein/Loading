@@ -42,6 +42,12 @@ public class SteeringWheelController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/deleteText/{id}")
+    public ResponseEntity<Void> deleteText(@PathVariable Long id) {
+        steeringWheelService.deleteText(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
     @PostMapping("/storeImage")
     public ResponseEntity<Void> storeImage(@RequestParam("file") MultipartFile file) {
         try {
