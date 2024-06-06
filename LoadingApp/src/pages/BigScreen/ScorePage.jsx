@@ -2,43 +2,52 @@ import React from 'react';
 import ScoreHeader from '../../components/BigScreen/ScoreScreen/ScoreHeader';
 import ChoiceImage from '../../components/BigScreen/ScoreScreen/ChoiceImage';
 import ChoiceText from '../../components/BigScreen/ScoreScreen/ChoiceText';
-import Chart from '../../components/BigScreen/ScoreScreen/Chart';
 import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
 import ArrowNavigationLeft from '../../components/Common/ArrowNavigationLeft';
-import useMostVotedChoice from '../../hooks/useMostVotedChoice';
+import useChoicesAndVotes from '../../hooks/useChoiceAndVotes';
+import Chart from '../../components/BigScreen/ScoreScreen/Chart';
 import '../../styles/ScorePageStyles/scorePage.css';
 import '../../styles/ScorePageStyles/scoreHeader.css';
-
+import '../../styles/ScorePageStyles/chart.css';
 
 const ScorePage = () => {
-  const { mostVoted, error } = useMostVotedChoice();
-  const weaponChoice = mostVoted ? mostVoted.choice.name : 'Loading...'; // Update as per your backend response structure
-  const weaponImage = '/src/images/PilOgBue.png'; // Update this path as needed
-  const chartData = [
-    { percentage: 35, label: '35%' },
-    { percentage: 65, label: '65%' }
-  ];
-  const chartImages = [
-    '/src/images/PilOgBue.png', // Update this path as needed
-    '/src/images/PilOgBue.png' // Update this path as needed
-  ];
+  const { choices, votes, error } = useChoicesAndVotes();
+
+  if (error) {
+    return <div>Error loading data: {error.message}</div>;
+  }
+
+  const voteCounts = votes.reduce((acc, vote) => {
+    acc[vote.choice.choiceId] = (acc[vote.choice.choiceId] || 0) + 1;
+    return acc;
+  }, {});
+
+  const totalVotes = votes.length;
+  const sortedChoices = choices.sort((a, b) => (voteCounts[b.choiceId] || 0) - (voteCounts[a.choiceId] || 0));
+  const mostVotedChoice = sortedChoices[0] || { choiceTxt: 'Loading...', choiceId: 0 };
+  const weaponChoice = mostVotedChoice.choiceTxt;
+
+  const chartData = choices.map(choice => ({
+    percentage: ((voteCounts[choice.choiceId] || 0) / totalVotes) * 100,
+    label: `${Math.round(((voteCounts[choice.choiceId] || 0) / totalVotes) * 100)}%`,
+    choiceTxt: choice.choiceTxt,
+  }));
 
   return (
-    <div className="score-container flex flex-col items-center h-screen">
+    <div className="score-container">
       <ScoreHeader className="score-header" />
-      <div className="score-content grid grid-cols-2 gap-4 w-full max-w-screen-lg mt-20 flex-grow">
-        <div className="score-left flex flex-col items-center mt-auto mb-auto">
-          <ChoiceImage imageUrl={weaponImage} className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/2" />
-          <ChoiceText text={`... valgte ${weaponChoice}`} className="mt-6 text-2xl md:text-3xl lg:text-4xl font-semibold text-[#4E3B2B]" />
+      <div className="score-content">
+        <div className="score-left">
+          <ChoiceImage imageUrl={'/src/images/PilOgBue.png'} className="choice-image" />
+          <ChoiceText text={`Publikum valgte ${weaponChoice}`} className="choice-text" />
         </div>
-        <div className="score-right flex flex-col items-center h-full">
-          <Chart data={chartData} images={chartImages} className="w-full h-64 md:h-full" />
+        <div className="score-right">
+          <Chart data={chartData} />
         </div>
+        
       </div>
-      <div className="absolute bottom-4 left-4">
+      <div className="navigation">
         <ArrowNavigationLeft nextPage="/voting" />
-      </div>
-      <div className="absolute bottom-4 right-4">
         <ArrowNavigationRight nextPage="/totalScore" />
       </div>
     </div>

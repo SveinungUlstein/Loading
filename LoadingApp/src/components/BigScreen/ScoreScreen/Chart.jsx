@@ -1,12 +1,21 @@
 import React from 'react';
-import ChartItem from './ChartItem';
 import '../../../styles/ScorePageStyles/chart.css';
 
-const Chart = ({ data, images }) => {
+const Chart = ({ data }) => {
   return (
-    <div className="chart flex justify-around items-end w-full">
+    <div className="chart-container">
       {data.map((item, index) => (
-        <ChartItem key={index} percentage={item.percentage} label={item.label} image={images[index]} />
+        <div key={index} className="chart-bar">
+          <div
+            className="chart-value"
+            style={{
+              height: `${item.percentage * 0.5}vh`, // Scale height based on percentage
+            }}
+          >
+            {item.label}
+          </div>
+          <div className="chart-label">{item.choiceTxt}</div>
+        </div>
       ))}
     </div>
   );
