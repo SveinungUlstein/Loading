@@ -28,7 +28,7 @@ public class GameRoomService {
     public GameRoomEntity joinRoom(int roomId, Long userId, String username, Integer avatar, String cookie) {
         return gameRoomRepository.findById(String.valueOf(roomId)).map(gameRoom -> {
             PlayerUser playerUser = playerUserRepo.findById(userId).orElseGet(() -> {
-                PlayerUser newPlayer = new PlayerUser(userId, username, avatar, cookie);
+                PlayerUser newPlayer = new PlayerUser();
                 return playerUserRepo.save(newPlayer);
             });
             if (!gameRoom.getPlayers().contains(playerUser)) {

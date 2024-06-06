@@ -19,12 +19,13 @@ public class PlayerUser {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String userName;
 
     @Column(name = "avatar", nullable = false)
     private int avatar;
 
+    @JsonIgnore
     @Column(name = "cookie", nullable = false)
     private String cookie;
 
@@ -33,8 +34,7 @@ public class PlayerUser {
     @JoinColumn(name = "game_room_id")
     private GameRoomEntity gameRoom;
 
-    public PlayerUser(Long userId, String userName, int avatar, String cookie){
-        this.userId = userId;
+    public PlayerUser(String userName, int avatar, String cookie) {
         this.userName = userName;
         this.avatar = avatar;
         this.cookie = cookie;
