@@ -1,0 +1,16 @@
+.title-container {
+  width: 100%; /* 90% of the parent container's width */
+  text-align: center;
+}
+
+.title-text {
+  font-family: 'VT323', monospace;
+  font-size: 20vh; /* Adjust the size as needed */
+  color: #DEA937; /* Mustard color */
+  text-shadow: 
+    2px 2px 0 #4E3B2B, /* Dark brown shadow */
+    -1px -1px 0 #CE4A1C, /* Orange shadow */
+    1px -1px 0 #CE4A1C, /* Orange shadow */
+    -1px 1px 0 #CE4A1C, /* Orange shadow */
+    1px 1px 0 #CE4A1C; /* Orange shadow */
+}
