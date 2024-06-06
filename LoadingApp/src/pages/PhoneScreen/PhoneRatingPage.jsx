@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import PhoneRatingComponent from '../../components/PhoneScreen/RatingScreen/RatingComponent';
-
+import PhoneRatingComponent from '../../components/PhoneScreen/RatingScreen/PhoneRatingComponent';
 function PhoneRatingPage() {
   const navigate = useNavigate();
 
