@@ -65,7 +65,7 @@ function UserChoiceComponent() {
       </div>
       <button
         className="next-button"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate('/phonerating')}
       >
         Next
       </button>

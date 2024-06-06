@@ -51,7 +51,6 @@ function InstructionComponent() {
 
   return (
     <div className="flex items-center justify-center h-screen bg-light-bg font-vt323 p-4 landscape relative">
-
       <div className="flex flex-row items-start space-x-4 p-4">
         <div className="flex flex-col items-start space-y-20">
           <div className="flex items-center">
@@ -78,10 +77,9 @@ function InstructionComponent() {
       </div>
       <button
         className="next-button"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate('/loading')}
       >
         <img src="/src/images/Group.png" alt="Videre" />
-    
       </button>
       <div className={`orientation-warning ${isPortrait ? 'visible' : ''}`}>
         <img src="/src/images/turnphone.png" alt="Please rotate your device" />

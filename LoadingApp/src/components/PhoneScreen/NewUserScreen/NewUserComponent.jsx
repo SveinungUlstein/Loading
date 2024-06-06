@@ -32,7 +32,7 @@ function NewUserComponent() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Character Selected with Name: ", selectedCharacter, name);
-    navigate('/');
+    navigate('/phonevoting');
   };
 
   const handleButtonClick = () => {

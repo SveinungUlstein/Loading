@@ -57,7 +57,7 @@ function PhoneVotingComponent() {
           return prevTime - 1;
         } else {
           clearInterval(timer);
-          navigate('/');
+          navigate('/userchoice');
           return 0;
         }
       });
