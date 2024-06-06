@@ -30,6 +30,7 @@ public class choiceController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Choice created successfully");
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<Choices> getChoiceById(@PathVariable Long id) {
         return choiceService.getChoiceById(id)
