@@ -51,7 +51,7 @@ public class VotesController {
             long userId = rootNode.get("userId").asLong();
             long choiceId = rootNode.get("choiceId").asLong();
             if (userId == -1 || choiceId == -1) {
-                return ResponseEntity.badRequest().body("Invalid payload");
+                return ResponseEntity.badRequest().body("no payload");
             }
             PlayerUser playerUser = new PlayerUser();
             playerUser.setUserId(userId);
@@ -59,13 +59,13 @@ public class VotesController {
             vote.setPlayerUser(playerUser);
             vote.setChoice(choiceService.getChoiceById(choiceId).orElse(null));
             if (vote.getChoice() == null) {
-                return ResponseEntity.badRequest().body("Invalid choice ID");
+                return ResponseEntity.badRequest().body("no choice with it :(");
             }
             votesService.saveVote(vote);
-            return ResponseEntity.ok("Vote cast successfully");
+            return ResponseEntity.ok("you voted, nice");
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("Error processing payload");
+            return ResponseEntity.badRequest().body("couldnt process payload");
         }
     }
 

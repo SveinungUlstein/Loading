@@ -61,8 +61,8 @@ public class websocketHandler extends TextWebSocketHandler {
     }
 
     private Votes parseVote(String payload) {
-        long userId = votesService.getUserIdFromPayload(payload);
-        long choiceId = votesService.getChoiceIdFromPayload(payload);
+        long userId = votesService.getUserFromPayload(payload);
+        long choiceId = votesService.getChoiceFromPayload(payload);
         return votesService.getVoteById(choiceId).orElse(null);
     }
 

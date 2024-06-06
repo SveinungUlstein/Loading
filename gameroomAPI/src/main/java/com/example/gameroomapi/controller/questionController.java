@@ -20,12 +20,6 @@ import java.util.List;
 public class questionController {
 
     @Autowired
-    private votesService votesService;
-
-    @Autowired
-    private choiceService choiceService;
-
-    @Autowired
     private questionService questionService;
 
     @GetMapping()
