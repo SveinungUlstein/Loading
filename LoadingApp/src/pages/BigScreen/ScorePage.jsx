@@ -7,7 +7,7 @@ import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
 import ArrowNavigationLeft from '../../components/Common/ArrowNavigationLeft';
 import useMostVotedChoice from '../../hooks/useMostVotedChoice';
 import '../../styles/ScorePageStyles/scorePage.css';
-import '../../styles/ScorePageStyles/scoreHeader.css';
+import '../../styles/Common/Header.css';
 
 
 const ScorePage = () => {
