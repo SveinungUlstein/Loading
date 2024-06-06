@@ -1,0 +1,41 @@
+.new-page-container {
+    font-family: 'VT323', monospace;
+  }
+  
+  .image-section img {
+    max-height: 20vh; /* Adjust based on your needs */
+  }
+  
+  .some-component {
+    text-align: center;
+    color: #4E3B2B;
+    font-size: 5vh;
+  }
+  
+  .some-component p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .instagram-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .instagram-icon {
+    height: 9rem; /* Adjust size as needed */
+    width: 12rem; /* Adjust size as needed */
+
+  }
+  
+  .text-section {
+    text-align: center;
+    padding: 2rem;
+    color: #4E3B2B; /* Brown color */
+  }
+  
+  .text-section p {
+    font-size: 7vh; /* Adjust the size as needed */
+  }
+  

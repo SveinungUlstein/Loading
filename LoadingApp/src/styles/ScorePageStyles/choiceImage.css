@@ -1,0 +1,8 @@
+.choice-image {
+  width: 10vh;
+  height: 10vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-bottom: 1rem;
+}
