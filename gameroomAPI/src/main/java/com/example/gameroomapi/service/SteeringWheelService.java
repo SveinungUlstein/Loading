@@ -52,7 +52,7 @@ public class SteeringWheelService {
     public void imageToDatabase(MultipartFile image) throws IOException{
         SaveImage saveImage = new SaveImage();
         if (image != null && !image.isEmpty()) {
-            saveImage.setQuestionImage(image.getBytes());
+            saveImage.setAdminQuestionImage(image.getBytes());
             saveImageRepository.save(saveImage);
         }
     }
