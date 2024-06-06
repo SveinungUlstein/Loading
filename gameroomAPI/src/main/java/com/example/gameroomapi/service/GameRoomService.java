@@ -24,11 +24,10 @@ public class GameRoomService {
         gameRoom.setQrCodeData("http://localhost:8080/gameroom/join");
         return gameRoomRepository.save(gameRoom);
     }
-
     public GameRoomEntity joinRoom(int roomId, Long userId, String username, Integer avatar, String cookie) {
         return gameRoomRepository.findById(String.valueOf(roomId)).map(gameRoom -> {
             PlayerUser playerUser = playerUserRepo.findById(userId).orElseGet(() -> {
-                PlayerUser newPlayer = new PlayerUser(userId, username, avatar, cookie);
+                PlayerUser newPlayer = new PlayerUser();
                 return playerUserRepo.save(newPlayer);
             });
             if (!gameRoom.getPlayers().contains(playerUser)) {
@@ -38,22 +37,18 @@ public class GameRoomService {
             return gameRoomRepository.save(gameRoom);
         }).orElseThrow(() -> new RuntimeException("Game room not found"));
     }
-
     public GameRoomEntity showRoomList(int roomId) {
         return gameRoomRepository.findById(String.valueOf(roomId)).orElseThrow(() -> new RuntimeException("Game room not found"));
     }
-
     public boolean isGameRoomActive(int id) {
         return gameRoomRepository.findById(String.valueOf(id)).map(GameRoomEntity::isActive).orElse(false);
     }
-
     public void finishGameRoom(int id) {
         gameRoomRepository.findById(String.valueOf(id)).ifPresent(room -> {
             room.setActive(false);
             gameRoomRepository.save(room);
         });
     }
-
     public Optional<GameRoomEntity> getGameRoomById(int roomId) {
         return gameRoomRepository.findById(String.valueOf(roomId));
     }
