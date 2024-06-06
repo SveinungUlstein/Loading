@@ -12,6 +12,8 @@
   .choice-box {
     border-color: #DEA937; /* Mustard color */
     margin-bottom: 1rem;
+    width: 70%;
+    margin-left: 13rem;
   }
   
   .choice-box img {
