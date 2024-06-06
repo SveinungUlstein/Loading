@@ -49,11 +49,9 @@ public class SteeringWheelService {
         writeTextRepository.save(writeText);
     }
 
-    public void imageToDatabase(MultipartFile image) throws IOException{
+    public void imageToDatabase(MultipartFile file) throws IOException{
         SaveImage saveImage = new SaveImage();
-        if (image != null && !image.isEmpty()) {
-            saveImage.setAdminQuestionImage(image.getBytes());
-            saveImageRepository.save(saveImage);
-        }
+        saveImage.setAdminQuestionImage(file.getBytes());
+        saveImageRepository.save(saveImage);
     }
 }

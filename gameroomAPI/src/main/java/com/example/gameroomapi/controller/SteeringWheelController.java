@@ -12,6 +12,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/AdminRoom")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class SteeringWheelController {
 
     @Autowired
@@ -42,12 +43,11 @@ public class SteeringWheelController {
     }
 
     @PostMapping("/storeImage")
-    public ResponseEntity<Void> storeImage(@RequestParam MultipartFile image) {
+    public ResponseEntity<Void> storeImage(@RequestParam("file") MultipartFile file) {
         try {
-            steeringWheelService.imageToDatabase(image);
+            steeringWheelService.imageToDatabase(file);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (IOException e) {
-            e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
