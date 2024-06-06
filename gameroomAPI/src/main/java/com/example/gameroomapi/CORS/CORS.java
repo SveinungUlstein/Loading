@@ -1,4 +1,4 @@
-package com.example.gameroomapi;
+package com.example.gameroomapi.CORS;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/Common/ArrowNavigationRight.css';
+import '../../styles/Common/ArrowNavigation.css';
 
 const ArrowNavigationLeft = ({ nextPage }) => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const ArrowNavigationLeft = ({ nextPage }) => {
 
   return (
     <div className="arrow-navigation-left-container" onClick={handleClick}>
-      <img src="\src\images\PilOgBue.png" alt="Arrow Left" className="h-12 w-12 cursor-pointer" />
+      <img src="\src\images\ArrowLeft.png" alt="Arrow Left" className="h-20 w-20 cursor-pointer" style={{ width: '150px', height: '150px' }} />
     </div>
   );
 };
