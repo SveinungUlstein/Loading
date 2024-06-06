@@ -17,7 +17,6 @@ public class playerUserService {
     public List<PlayerUser> getAllPlayerUsers() {
         return playerUserRepo.findAll();
     }
-
     public PlayerUser getPlayerUserById(Long id) {
         return playerUserRepo.findById(id).orElse(null);
     }

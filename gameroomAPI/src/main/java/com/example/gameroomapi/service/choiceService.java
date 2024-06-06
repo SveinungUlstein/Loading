@@ -27,6 +27,8 @@ public class choiceService {
         if (questionOptional.isPresent()) {
             choice.setQuestions(questionOptional.get());
             choicesRepo.save(choice);
+        } else {
+            throw new IllegalArgumentException("Question with ID " + questionId + " not found");
         }
     }
 
