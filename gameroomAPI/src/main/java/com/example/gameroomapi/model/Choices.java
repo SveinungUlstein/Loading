@@ -21,7 +21,6 @@ public class Choices {
 
     @Lob
     @Column(name = "choiceImage",nullable = true)
-
     private byte[] choiceImage;
 
     @ManyToOne(fetch = FetchType.LAZY)

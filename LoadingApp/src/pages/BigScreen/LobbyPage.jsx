@@ -4,9 +4,12 @@ import CharacterBox from '../../components/BigScreen/lobbyScreen/CharacterBox';
 import TimerBox from '../../components/BigScreen/lobbyScreen/TimerBox';
 import QrCode from '../../components/Common/QRCode';
 import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
+import useAvatarCounts from '../../hooks/useAvatarCounts';
 import '../../styles/LobbyStyles/lobbyScreen.css';
 
 const LobbyPage = () => {
+  const avatarCounts = useAvatarCounts();
+
   return (
     <div className="lobby-container grid grid-cols-2 grid-rows-2 gap-4 h-screen p-8">
       <div className="col-span-1 flex justify-center items-center">
@@ -16,7 +19,12 @@ const LobbyPage = () => {
         <QrCode />
       </div>
       <div className="col-span-1 flex justify-center items-top">
-        <CharacterBox imageUrl="/src/images/3Characters.png" avatarNumber1={12} avatarNumber2={14} avatarNumber3={10} /> 
+        <CharacterBox
+          imageUrl="/src/images/3Characters.png"
+          avatarNumber1={avatarCounts.avatar1}
+          avatarNumber2={avatarCounts.avatar2}
+          avatarNumber3={avatarCounts.avatar3}
+        />
       </div>
       <div className="col-span-1 flex flex-col justify-center items-center">
         <div className="text-center mt-4"></div>

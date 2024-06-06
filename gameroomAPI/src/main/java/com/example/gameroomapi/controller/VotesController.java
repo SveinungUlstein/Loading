@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/votes")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:5173")
 public class VotesController {
 
     @Autowired
