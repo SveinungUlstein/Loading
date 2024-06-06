@@ -340,3 +340,12 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 90 more
+2024-06-06 20:22:19.765295+02:00 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION (QUESTION_ID, QUESTION_TXT) VALUES (1, 'What is the capital of France?') [42102-224]
+2024-06-06 20:22:19.790228+02:00 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION (QUESTION_ID, QUESTION_TXT) VALUES (2, 'What is 2 + 2?') [42102-224]
+2024-06-06 20:22:26.497326+02:00 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found; SQL statement:
+INSERT INTO QUESTION (QUESTION_ID, QUESTION_TXT) VALUES (1, 'What is the capital of France?') [42102-224]
