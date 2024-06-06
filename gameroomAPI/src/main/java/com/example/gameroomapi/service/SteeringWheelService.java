@@ -49,7 +49,7 @@ public class SteeringWheelService {
         writeTextRepository.save(writeText);
     }
 
-    public void deleteText(Long id) {
+    public void deleteFromDatabase(Long id) {
         writeTextRepository.deleteById(id);
     }
 

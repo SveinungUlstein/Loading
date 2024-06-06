@@ -42,9 +42,9 @@ public class SteeringWheelController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/deleteText/{id}")
+    @DeleteMapping("/deleteItem/{id}")
     public ResponseEntity<Void> deleteText(@PathVariable Long id) {
-        steeringWheelService.deleteText(id);
+        steeringWheelService.deleteFromDatabase(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
