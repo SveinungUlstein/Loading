@@ -13,6 +13,9 @@ import PhoneRatingPage from '../pages/PhoneScreen/PhoneRatingPage';
 import PhoneVotingPage from '../pages/PhoneScreen/PhoneVotingPage';
 import UserChoicePage from '../pages/PhoneScreen/UserChoicePage';
 import TestPage from '../pages/TestPage';
+import AdminHomePage from '../pages/AdminScreen/AdminHomePage';
+import AdminLibraryPage from '../pages/AdminScreen/AdminLibraryPage';
+import AdminReportPage from '../pages/AdminScreen/AdminReportPage';
 
 function RoutingMain() {
   return (
@@ -32,6 +35,10 @@ function RoutingMain() {
         <Route path="/phonerating" element={<PhoneRatingPage />} />
         <Route path="/phonevoting" element={<PhoneVotingPage />} />
         <Route path="/userchoice" element={<UserChoicePage />} />
+         {/* Admin Pages */}
+        <Route path="/adminhome" element={<AdminHomePage />} />
+        <Route path="/adminlibrary" element={<AdminLibraryPage />} />
+        <Route path="/adminreport" element={<AdminReportPage/>} />
         {/* Test Page */}
         <Route path="/test" element={<TestPage />} />
         {/* Default Route */}

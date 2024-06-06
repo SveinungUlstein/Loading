@@ -7,6 +7,8 @@ import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
 import ArrowNavigationLeft from '../../components/Common/ArrowNavigationLeft';
 import useMostVotedChoice from '../../hooks/useMostVotedChoice';
 import '../../styles/ScorePageStyles/scorePage.css';
+import '../../styles/ScorePageStyles/scoreHeader.css';
+
 
 const ScorePage = () => {
   const { mostVoted, error } = useMostVotedChoice();
@@ -27,7 +29,7 @@ const ScorePage = () => {
       <div className="score-content grid grid-cols-2 gap-4 w-full max-w-screen-lg mt-20 flex-grow">
         <div className="score-left flex flex-col items-center mt-auto mb-auto">
           <ChoiceImage imageUrl={weaponImage} className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/2" />
-          <ChoiceText text={`Ragnar valgte ${weaponChoice}`} className="mt-6 text-2xl md:text-3xl lg:text-4xl font-semibold text-[#4E3B2B]" />
+          <ChoiceText text={`... valgte ${weaponChoice}`} className="mt-6 text-2xl md:text-3xl lg:text-4xl font-semibold text-[#4E3B2B]" />
         </div>
         <div className="score-right flex flex-col items-center h-full">
           <Chart data={chartData} images={chartImages} className="w-full h-64 md:h-full" />

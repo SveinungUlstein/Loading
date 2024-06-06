@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Title1 from '../../components/Common/Title1';
 import Image from '../../components/BigScreen/RatingScreen/Image';
@@ -27,4 +28,4 @@ const NewPage = () => {
 };
 
 export default NewPage;
-//s
+

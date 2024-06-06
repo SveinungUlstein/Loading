@@ -1,20 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../../styles/PhoneScreenStyles/UserChoiceStyles/Userchoice.css';
+
+const PictureComponent = ({ src, alt }) => (
+  <img src={src} alt={alt} className="w-12 h-12 mr-4" />
+);
 
 function UserChoiceComponent() {
   const navigate = useNavigate();
+  const [isPortrait, setIsPortrait] = useState(false);
+
+  useEffect(() => {
+    const lockOrientation = async () => {
+      if (screen.orientation && screen.orientation.lock) {
+        try {
+          await screen.orientation.lock('landscape');
+        } catch (error) {
+          console.error('Failed to lock orientation:', error);
+          setShowPopup(true);
+          setTimeout(() => setShowPopup(false), 5000);
+        }
+      } else {
+        setShowPopup(true);
+        setTimeout(() => setShowPopup(false), 5000);
+      }
+    };
+
+    const handleOrientationChange = () => {
+      if (window.innerHeight > window.innerWidth) {
+        setIsPortrait(true);
+      } else {
+        setIsPortrait(false);
+      }
+    };
+
+    lockOrientation();
+    handleOrientationChange();
+    window.addEventListener('orientationchange', handleOrientationChange);
+    window.addEventListener('resize', handleOrientationChange);
+
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      window.removeEventListener('resize', handleOrientationChange);
+      if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
+      }
+    };
+  }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen bg-black text-white">
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-4 text-center">
-        <h2 className="text-2xl font-bold text-gray-900">User Choice Page</h2>
-        <p className="text-gray-600">Velkommen til User Choice Page. Genereres nå av component</p>
-        <button
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
-          onClick={() => navigate(-1)}
-        >
-          Back
-        </button>
+    <div className="flex items-center justify-center h-screen bg-light-bg font-vt323 p-4 landscape-mode">
+      <div className="choice-container">
+        <div className="choice-header">DINE VALG</div>
+        <div className="flex items-center bg-white p-4 border-2 border-black rounded-lg mb-4">
+          <PictureComponent src="src/images/pilOgBue.png" alt="Character" />
+          <div>
+            <p>Hvordan valgte du å bekjempe trollet?</p>
+            <p>Du og 13 andre valgte pil og buen</p>
+          </div>
+        </div>
+        <div className="bg-white p-4 border-2 border-black rounded-lg">
+          <p>Alternativ valg som ble gjort vises her</p>
+        </div>
+      </div>
+      <button
+        className="next-button"
+        onClick={() => navigate(-1)}
+      >
+        Next
+      </button>
+      <div className={`orientation-warning ${isPortrait ? 'visible' : ''}`}>
+        <img src="src/images/turnphone.png" alt="Please rotate your device" />
       </div>
     </div>
   );

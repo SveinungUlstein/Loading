@@ -1,0 +1,32 @@
+.chart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-bar {
+  width: 5vh;
+  background-color: #DEA937;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.chart-percentage {
+  position: absolute;
+  top: -1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.chart-image {
+  width: 5vh;
+  height: 5vh;
+  margin-top: 0.5rem;
+}
+
+.chart-label {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}

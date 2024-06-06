@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* Font import */
+
+/* Font family VT323 applied */
+.font-vt323 {
+  font-family: 'VT323', monospace;
+}
+
+/* Light teal background color */
+.bg-light-teal {
+  background-color: rgb(26, 142, 143); /* #1A8E8F */
+}
+
+/* Dark brown background color */
+.bg-dark-brown {
+  background-color: rgb(96, 80, 63); /* #60503F */
+}
+
+/* Light background color similar to prototype */
+.bg-light-bg {
+  background-color: rgb(255, 239, 213); /* Light background color similar to prototype */
+}
+
+/* Fullscreen setup */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Landscape mode layout */
+.landscape {
+  display: flex; /* Flexbox layout */
+  flex-direction: row; /* Row direction */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+}
+
+/* Left speech bubble */
+.bubble-left {
+  position: relative; /* Relative positioning */
+}
+
+/* Arrow for left speech bubble */
+.bubble-left::after {
+  content: '';
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 100%; /* Align to the left */
+  border-width: 10px; /* Arrow size */
+  border-style: solid; /* Arrow style */
+  border-color: transparent transparent transparent rgb(26, 142, 143); /* Same as bg-light-teal */
+}
+
+/* Right speech bubble */
+.bubble-right {
+  position: relative; /* Relative positioning */
+}
+
+/* Arrow for right speech bubble */
+.bubble-right::after {
+  content: '';
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  right: 100%; /* Align to the right */
+  border-width: 10px; /* Arrow size */
+  border-style: solid; /* Arrow style */
+  border-color: transparent rgb(96, 80, 63) transparent transparent; /* Same as bg-dark-brown */
+}
+
+/* Default character image size */
+.character-img {
+  width: 100px; /* Default width */
+  height: 100px; /* Default height */
+}
+
+/* Large character image size */
+.large-character-img {
+  width: 200px; /* Increased width */
+  height: 200px; /* Increased height */
+}
+
+/* Divider style */
+.divider {
+  width: 2px; /* Thin width */
+  height: 100%; /* Full height */
+  background-color: #e0e0e0; /* Light gray divider */
+  margin: 0 20px; /* Margin */
+}
+
+/* Placeholder text color */
+input::placeholder {
+  color: #888; /* Placeholder text color */
+}
+
+/* Dark background for outer container */
+.bg-dark {
+  background-color: rgb(77, 59, 43); /* Dark background color */
+}
+
+/* Light background for inner container */
+.bg-light-bg {
+  background-color: rgb(255, 239, 213); /* Light background color */
+}
+
+/* Input field style */
+input {
+  font-family: 'VT323', monospace; /* Font family */
+  font-size: 20px; /* Font size */
+}
+
+/* Button style */
+button {
+  font-family: 'VT323', monospace; /* Font family */
+  font-size: 20px; /* Font size */
+}
+
+/* Next button style */
+.next-button {
+  position: absolute; /* Absolute positioning */
+  bottom: 20px; /* Positioned at the bottom */
+  right: 20px; /* Positioned at the right */
+  font-size: 24px; /* Font size */
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* Image inside next button */
+.next-button img {
+  width: 70px; /* Image width */
+  margin-right: 8px; /* Margin */
+}
+
+/* Hover effect for next button */
+.next-button:hover {
+  opacity: 0.8; /* Reduced opacity on hover */
+}
+
+/* Warning for incorrect orientation */
+.orientation-warning {
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(255, 255, 255, 0.3); /* Adjusted opacity for more see-through effect */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items vertically */
+  justify-content: center; /* Center align items horizontally */
+  z-index: 9999; /* Ensure it appears above all other content */
+  visibility: hidden; /* Hidden by default */
+}
+
+/* Make the orientation warning visible */
+.orientation-warning.visible {
+  visibility: visible; /* Set visibility to visible */
+}
+
+/* Style for the image inside the orientation warning */
+.orientation-warning img {
+  max-width: 80%; /* Max width */
+  max-height: 80%; /* Max height */
+}
+
+/* General star animation */
+.star {
+  transition: transform 0.2s ease; /* Smooth transition */
+}
+
+/* Hover effect for star */
+.star:hover {
+  transform: scale(1.2); /* Enlarge on hover */
+}
+
+/* Responsive Text Area */
+.textarea-responsive {
+  background-color: rgba(250, 248, 235, 1); /* Light background color */
+  width: 100%; /* Full width */
+  padding: 1rem; /* Padding */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 0.5rem; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  height: auto; /* Auto height */
+}
+
+/* Media query for landscape mode */
+@media (orientation: landscape) {
+  /* Adjust text area style for landscape mode */
+  .textarea-responsive {
+    font-size: 0.8rem; /* Smaller font size */
+    padding: 0.5rem; /* Less padding */
+    height: 60px; /* Further reduce the height in landscape mode */
+  }
+
+  /* Adjust character image style for landscape mode */
+  .character-img {
+    width: 60px; /* Further reduced width for landscape mode */
+    height: 60px; /* Further reduced height for landscape mode */
+  }
+
+  /* Hover effect for character image in landscape mode */
+  .character-img:hover {
+    transform: scale(1.5); /* Slightly enlarge on hover for landscape mode */
+  }
+
+  /* Adjust padding for the container in landscape mode */
+  .p-6 {
+    padding: 1rem; /* Reduce padding */
+  }
+
+  /* Adjust max-width for better visibility in landscape mode */
+  .max-w-lg {
+    max-width: 80%; /* Increase max-width */
+  }
+
+  /* Adjust width for better visibility in landscape mode */
+  .w-full {
+    width: 90%; /* Increase width */
+  }
+
+  /* Scale down the rating stars in landscape mode */
+  .rating-stars-component {
+    transform: scale(0.8); /* Scale down */
+  }
+}

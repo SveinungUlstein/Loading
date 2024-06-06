@@ -1,6 +1,8 @@
 .total-score-container {
-    font-family: 'VT323', monospace;
-    background-color: #E8E3C3; /* Cream color */
+  background-color: #F5F5DC;
+  font-family: 'VT323', monospace;
+  text-align: center;
+  padding: 20px;
   }
   
   .total-score-title {
