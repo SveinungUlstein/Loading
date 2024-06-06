@@ -49,6 +49,10 @@ public class SteeringWheelService {
         writeTextRepository.save(writeText);
     }
 
+    public void deleteFromDatabase(Long id) {
+        writeTextRepository.deleteById(id);
+    }
+
     public void imageToDatabase(MultipartFile file) throws IOException{
         SaveImage saveImage = new SaveImage();
         saveImage.setAdminQuestionImage(file.getBytes());
