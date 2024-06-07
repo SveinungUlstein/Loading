@@ -20,7 +20,6 @@ public class Choices {
     private Long choiceId;
 
     @Column(name = "choiceTxt",nullable = true)
-    @JsonIgnore
     private String choiceTxt;
 
     @Lob
