@@ -39,7 +39,7 @@ function NewUserComponent() {
       try {
         const createdPlayer = await createPlayerUser(name, selectedCharacter);
         console.log('Player created successfully:', createdPlayer);
-        navigate('/phonevoting');
+        navigate('/loading');
       } catch (error) {
         console.error('Error creating player:', error);
       }

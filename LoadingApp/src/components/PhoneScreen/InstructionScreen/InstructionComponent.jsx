@@ -77,7 +77,7 @@ function InstructionComponent() {
       </div>
       <button
         className="next-button"
-        onClick={() => navigate('/loading')}
+        onClick={() => navigate('/newuser')}
       >
         <img src="/src/images/Group.png" alt="Videre" />
       </button>

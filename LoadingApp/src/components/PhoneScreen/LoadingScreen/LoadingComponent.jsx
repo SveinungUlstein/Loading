@@ -35,7 +35,7 @@ function LoadingScreen() {
       </div>
       <button
         className="small-button"
-        onClick={() => navigate('/newuser')}
+        onClick={() => navigate('/phonevoting')}
         style={{
           position: 'absolute',
           bottom: '10px',
