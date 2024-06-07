@@ -34,7 +34,7 @@ const ScorePage = () => {
   }));
 
   return (
-    <div className="score-container">
+    <div className="score-container bg-cream p-8 h-screen">
       <ScoreHeader className="score-header" />
       <div className="score-content">
         <div className="score-left">
@@ -46,9 +46,11 @@ const ScorePage = () => {
         </div>
         
       </div>
-      <div className="navigation">
-        <ArrowNavigationLeft nextPage="/voting" />
-        <ArrowNavigationRight nextPage="/totalScore" />
+      <div className="absolute bottom-4 left-4">
+        <ArrowNavigationLeft nextPage="/score" />
+      </div> 
+      <div className="absolute bottom-4 right-4">
+        <ArrowNavigationRight nextPage="/rating" />
       </div>
     </div>
   );
