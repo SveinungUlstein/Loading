@@ -28,11 +28,11 @@ public class FeedbackController {
     .orElse(ResponseEntity.notFound().build());
     }
     @PostMapping
-    public Feedback createFeedback(@RequestBody Feedback feedback){
+    public Feedback createFeedback(@ModelAttribute Feedback feedback){
         return feedbackService.createFeedback(feedback);
     }
     @PostMapping("/{id}")
-    public ResponseEntity<Feedback> updateFeedback (@PathVariable Long id, @RequestBody Feedback feedbackDetails){
+    public ResponseEntity<Feedback> updateFeedback (@PathVariable Long id, @ModelAttribute Feedback feedbackDetails){
         try{
             Feedback updatedFeedback = feedbackService.updateFeedback(id,feedbackDetails);
             return ResponseEntity.ok(updatedFeedback);
