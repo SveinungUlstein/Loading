@@ -1,9 +1,11 @@
 package com.example.gameroomapi.controller;
 
+import com.example.gameroomapi.model.Choices;
 import com.example.gameroomapi.model.PlayerUser;
 import com.example.gameroomapi.model.Votes;
 import com.example.gameroomapi.service.choiceService;
 import com.example.gameroomapi.service.votesService;
+import com.example.gameroomapi.service.playerUserService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,10 @@ public class VotesController {
 
     @Autowired
     private choiceService choiceService;
+
+    @Autowired
+    private playerUserService playerUserService;
+
 
     @GetMapping()
     public ResponseEntity<List<Votes>> getAllVotes() {
@@ -51,22 +57,22 @@ public class VotesController {
             long userId = rootNode.get("userId").asLong();
             long choiceId = rootNode.get("choiceId").asLong();
             if (userId == -1 || choiceId == -1) {
-                return ResponseEntity.badRequest().body("no payload");
+                return ResponseEntity.badRequest().body("none of these mfs ecist");
             }
-            PlayerUser playerUser = new PlayerUser();
-            playerUser.setUserId(userId);
-            Votes vote = new Votes();
-            vote.setPlayerUser(playerUser);
-            vote.setChoice(choiceService.getChoiceById(choiceId).orElse(null));
-            if (vote.getChoice() == null) {
-                return ResponseEntity.badRequest().body("no choice with it :(");
+            PlayerUser playerUser = playerUserService.getPlayerUserById(userId);
+            if (playerUser == null) {
+                return ResponseEntity.badRequest().body("player dont ecist");
             }
+            Choices choice = choiceService.getChoiceById(choiceId).orElse(null);
+            if (choice == null) {
+                return ResponseEntity.badRequest().body("cant choose that");
+            }
+            Votes vote = new Votes(playerUser, choice);
             votesService.saveVote(vote);
-            return ResponseEntity.ok("you voted, nice");
+            return ResponseEntity.ok("pls work");
         } catch (IOException e) {
             e.printStackTrace();
-            return ResponseEntity.badRequest().body("couldnt process payload");
+            return ResponseEntity.badRequest().body("why tf did u not work");
         }
     }
-
 }

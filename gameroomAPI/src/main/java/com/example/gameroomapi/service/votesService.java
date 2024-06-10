@@ -4,12 +4,13 @@ import com.example.gameroomapi.model.Votes;
 import com.example.gameroomapi.repo.VotesRepo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,14 +20,17 @@ public class votesService {
     private VotesRepo votesRepo;
 
     public void saveVote(Votes vote) {
-        votesRepo.save(vote);
+        if (vote.getPlayerUser() != null && vote.getChoice() != null) {
+            votesRepo.save(vote);
+        } else {
+            throw new IllegalArgumentException("dem shits cant be null");
+        }
     }
 
     public Optional<Votes> getVoteById(Long id) {
         return votesRepo.findById(id);
     }
 
-    @Transactional
     public List<Votes> getAllVotes() {
         List<Votes> votes = votesRepo.findAll();
         votes.forEach(vote -> {
