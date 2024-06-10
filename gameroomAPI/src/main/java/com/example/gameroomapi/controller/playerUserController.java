@@ -30,7 +30,7 @@ public class playerUserController {
     }
 
     @PostMapping
-    public ResponseEntity<PlayerUser> createPlayerUser(@RequestParam PlayerUser playerUser) {
+    public ResponseEntity<PlayerUser> createPlayerUser(@RequestBody PlayerUser playerUser) {
         String generatedCookie = generateCookieValue();
         playerUser.setCookie(generatedCookie);
         PlayerUser createdPlayer = playerUserService.savePlayerUser(playerUser);
