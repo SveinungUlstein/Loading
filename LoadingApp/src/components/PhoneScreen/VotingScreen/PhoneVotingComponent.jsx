@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useChoices from '../../../hooks/PhoneScreen/useChoice.js';
 import '../../../styles/PhoneScreenStyles/phoneVotingStyles/phonevoting.css'; 
 
 function PhoneVotingComponent() {
@@ -8,6 +9,7 @@ function PhoneVotingComponent() {
   const [orientationLocked, setOrientationLocked] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
+  const { submitChoice, loading } = useChoices();
 
   useEffect(() => {
     const lockOrientation = async () => {
@@ -57,7 +59,7 @@ function PhoneVotingComponent() {
           return prevTime - 1;
         } else {
           clearInterval(timer);
-          navigate('/');
+          navigate('/userchoice');
           return 0;
         }
       });
@@ -66,9 +68,15 @@ function PhoneVotingComponent() {
     return () => clearInterval(timer);
   }, [navigate]);
 
-  const handleClick = (choice) => {
+  const handleClick = async (choice) => {
     console.log(`You clicked ${choice}`);
-    // Add any effect or logic on click
+    try {
+      const response = await submitChoice(choice, 1); // Assuming 1 is the questionId for simplicity
+      console.log('Choice submitted successfully:', response);
+      // Add any effect or logic after successful submission
+    } catch (error) {
+      console.error('Error submitting choice:', error);
+    }
   };
 
   return (

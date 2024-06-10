@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import usePlayerUser from '../../../hooks/PhoneScreen/usePlayerUser';
 import '../../../styles/PhoneScreenStyles/NewUserStyle/newUserScreen.css';
 
 function NewUserComponent() {
@@ -8,6 +9,7 @@ function NewUserComponent() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [isPortrait, setIsPortrait] = useState(false);
   const formRef = useRef(null);
+  const { createPlayerUser, loading, error } = usePlayerUser();
 
   useEffect(() => {
     const handleOrientationChange = () => {
@@ -29,10 +31,21 @@ function NewUserComponent() {
     console.log("Character Selected: ", character);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Character Selected with Name: ", selectedCharacter, name);
-    navigate('/');
+
+    if (name && selectedCharacter !== null) {
+      try {
+        const createdPlayer = await createPlayerUser(name, selectedCharacter);
+        console.log('Player created successfully:', createdPlayer);
+        navigate('/phonevoting');
+      } catch (error) {
+        console.error('Error creating player:', error);
+      }
+    } else {
+      console.log('Name and character selection are required.');
+    }
   };
 
   const handleButtonClick = () => {
@@ -47,14 +60,14 @@ function NewUserComponent() {
         <div className="flex flex-col items-start">
           <h1 className="text-2xl mb-4">Hvem vil du være?</h1>
           <div className="flex items-center">
-            <button onClick={() => handleCharacterClick('Character 1')} className="mr-4 cursor-pointer">
-              <img src="src/images/Karakter1.png" alt="Character 1" className="character-img"/>
+            <button onClick={() => handleCharacterClick(1)} className="mr-4 cursor-pointer">
+              <img src="src/images/Karakter1.png" alt="Character 1" className="character-img" />
             </button>
-            <button onClick={() => handleCharacterClick('Character 2')} className="mr-4 cursor-pointer">
-              <img src="src/images/Karakter2.png" alt="Character 2" className="character-img"/>
+            <button onClick={() => handleCharacterClick(2)} className="mr-4 cursor-pointer">
+              <img src="src/images/Karakter2.png" alt="Character 2" className="character-img" />
             </button>
-            <button onClick={() => handleCharacterClick('Character 3')} className="cursor-pointer">
-              <img src="src/images/Karakter3.png" alt="Character 3" className="character-img"/>
+            <button onClick={() => handleCharacterClick(3)} className="cursor-pointer">
+              <img src="src/images/Karakter3.png" alt="Character 3" className="character-img" />
             </button>
           </div>
         </div>
@@ -78,6 +91,8 @@ function NewUserComponent() {
       <div className={`orientation-warning ${isPortrait ? 'visible' : ''}`}>
         <img src="src/images/turnphone.png" alt="Please rotate your device" />
       </div>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
     </div>
   );
 }

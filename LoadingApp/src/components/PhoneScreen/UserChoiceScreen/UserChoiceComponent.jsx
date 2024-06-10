@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useVotes from '../../../hooks/PhoneScreen/useVotes.js';
 import '../../../styles/PhoneScreenStyles/UserChoiceStyles/Userchoice.css';
 
 const PictureComponent = ({ src, alt }) => (
@@ -9,6 +10,8 @@ const PictureComponent = ({ src, alt }) => (
 function UserChoiceComponent() {
   const navigate = useNavigate();
   const [isPortrait, setIsPortrait] = useState(false);
+  const [votes, setVotes] = useState([]);
+  const { getVotesByUserId, loading, error } = useVotes();
 
   useEffect(() => {
     const lockOrientation = async () => {
@@ -48,24 +51,45 @@ function UserChoiceComponent() {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchVotes = async () => {
+      const userId = sessionStorage.getItem('userId');
+      if (userId) {
+        try {
+          const userVotes = await getVotesByUserId(userId);
+          setVotes(userVotes);
+        } catch (error) {
+          console.error('Error retrieving votes:', error);
+        }
+      }
+    };
+
+    fetchVotes();
+  }, [getVotesByUserId]);
+
   return (
     <div className="flex items-center justify-center h-screen bg-light-bg font-vt323 p-4 landscape-mode">
       <div className="choice-container">
         <div className="choice-header">DINE VALG</div>
-        <div className="flex items-center bg-white p-4 border-2 border-black rounded-lg mb-4">
-          <PictureComponent src="src/images/pilOgBue.png" alt="Character" />
-          <div>
-            <p>Hvordan valgte du å bekjempe trollet?</p>
-            <p>Du og 13 andre valgte pil og buen</p>
-          </div>
-        </div>
-        <div className="bg-white p-4 border-2 border-black rounded-lg">
-          <p>Alternativ valg som ble gjort vises her</p>
-        </div>
+        {loading && <p>Loading votes...</p>}
+        {error && <p>Error: {error.message}</p>}
+        {!loading && !error && votes.length > 0 ? (
+          votes.map((vote) => (
+            <div key={vote.voteId} className="flex items-center bg-white p-4 border-2 border-black rounded-lg mb-4">
+              <PictureComponent src="src/images/pilOgBue.png" alt="Character" />
+              <div>
+                <p>Hvordan valgte du å bekjempe trollet?</p>
+                <p>Du og 13 andre valgte pil og buen</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No votes found.</p>
+        )}
       </div>
       <button
         className="next-button"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate('/phonerating')}
       >
         Next
       </button>

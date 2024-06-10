@@ -29,7 +29,6 @@ public class Votes {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "choiceId", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @JsonIgnore
     private Choices choice;
 
     public Votes(PlayerUser playerUser, Choices choice) {

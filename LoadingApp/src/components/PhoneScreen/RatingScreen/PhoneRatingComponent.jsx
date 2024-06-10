@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating-stars-component';
-import '../../../styles/PhoneScreenStyles/NewUserStyle/newUserScreen.css'; 
+import useFeedback from '../../../hooks/PhoneScreen/useFeedback.js';
 
 function PhoneRatingComponent() {
   const navigate = useNavigate();
   const [rating, setRating] = useState(0);
   const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
   const [feedback, setFeedback] = useState('');
+  const { submitFeedback, loading, error } = useFeedback();
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,10 +27,22 @@ function PhoneRatingComponent() {
     console.log(`Selected Rating: ${newRating}`);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(`Submitted Rating: ${rating}`);
     console.log(`Feedback: ${feedback}`);
-    navigate('/'); 
+
+    if (feedback.trim() === '') {
+      console.error('Feedback cannot be empty');
+      return;
+    }
+
+    try {
+      const response = await submitFeedback(rating, feedback);
+      console.log('Feedback submitted successfully:', response);
+      navigate('/'); 
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+    }
   };
 
   return (
@@ -71,6 +84,8 @@ function PhoneRatingComponent() {
           >
             Submit Rating
           </button>
+          {loading && <p>Submitting...</p>}
+          {error && <p>Error: {error.message}</p>}
         </div>
       )}
     </div>

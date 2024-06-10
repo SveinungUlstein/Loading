@@ -33,6 +33,20 @@ function LoadingScreen() {
       <div className={`orientation-warning ${isPortrait ? 'visible' : ''}`}>
         <img src="src/images/turnphone.png" alt="Please rotate your device" />
       </div>
+      <button
+        className="small-button"
+        onClick={() => navigate('/newuser')}
+        style={{
+          position: 'absolute',
+          bottom: '10px',
+          right: '10px',
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer'
+        }}
+      >
+        <img src="src/images/arrowright.png" alt="Go to new user" style={{ width: '50px', height: '50px' }}/>
+      </button>
     </div>
   );
 }
