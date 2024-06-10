@@ -1,51 +1,26 @@
-// src/hooks/PhoneScreen/useChoices.js
 import { useState } from 'react';
 import axios from 'axios';
 
-const useChoices = () => {
+const useChoice = () => {
+  const [choices, setChoices] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const submitChoice = async (choice, questionId) => {
+  const getVotesByUserId = async (userId) => {
     setLoading(true);
-    setError(null);
     try {
-      const payload = {
-        choice: {
-          choiceTxt: choice,
-          choiceImage: null,
-          questions: {
-            questionId: questionId
-          }
-        },
-        questionId: questionId
-      };
-
-      console.log("Submitting choice:", payload);
-
-      const response = await axios.post(
-        'http://localhost:8080/choices/create',
-        JSON.stringify(payload),
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      console.log("Response:", response);
-
+      const response = await axios.get(`http://localhost:8080/votes/${userId}`);
+      setChoices(response.data);
       setLoading(false);
       return response.data;
-    } catch (err) {
-      console.error("Axios error:", err);
+    } catch (error) {
+      setError(error);
       setLoading(false);
-      setError(err);
-      throw err;
+      throw error;
     }
   };
 
-  return { submitChoice, loading, error };
+  return { getVotesByUserId, choices, loading, error };
 };
 
-export default useChoices;
+export default useChoice;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useVotes from '../../../hooks/PhoneScreen/useVotes.js';
+import useChoice from '../../../hooks/PhoneScreen/useChoice';
 import '../../../styles/PhoneScreenStyles/UserChoiceStyles/Userchoice.css';
 
 const PictureComponent = ({ src, alt }) => (
@@ -11,7 +11,8 @@ function UserChoiceComponent() {
   const navigate = useNavigate();
   const [isPortrait, setIsPortrait] = useState(false);
   const [votes, setVotes] = useState([]);
-  const { getVotesByUserId, loading, error } = useVotes();
+  const [showPopup, setShowPopup] = useState(false); 
+  const { getVotesByUserId, loading, error } = useChoice(); 
 
   useEffect(() => {
     const lockOrientation = async () => {
@@ -76,7 +77,7 @@ function UserChoiceComponent() {
         {!loading && !error && votes.length > 0 ? (
           votes.map((vote) => (
             <div key={vote.voteId} className="flex items-center bg-white p-4 border-2 border-black rounded-lg mb-4">
-              <PictureComponent src="src/images/pilOgBue.png" alt="Character" />
+              <PictureComponent src="/path/to/your/image/pilOgBue.png" alt="Character" />
               <div>
                 <p>Hvordan valgte du å bekjempe trollet?</p>
                 <p>Du og 13 andre valgte pil og buen</p>

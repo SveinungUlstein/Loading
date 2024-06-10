@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useChoices from '../../../hooks/PhoneScreen/useChoice.js';
+import useVotes from '../../../hooks/PhoneScreen/useVotes.js';
 import '../../../styles/PhoneScreenStyles/phoneVotingStyles/phonevoting.css'; 
 
 function PhoneVotingComponent() {
@@ -9,7 +9,7 @@ function PhoneVotingComponent() {
   const [orientationLocked, setOrientationLocked] = useState(true);
   const [showPopup, setShowPopup] = useState(false);
   const [isPortrait, setIsPortrait] = useState(false);
-  const { submitChoice, loading } = useChoices();
+  const { castVote, loading, error } = useVotes();
 
   useEffect(() => {
     const lockOrientation = async () => {
@@ -32,9 +32,9 @@ function PhoneVotingComponent() {
 
     const handleOrientationChange = () => {
       if (window.innerHeight > window.innerWidth) {
-        setIsPortrait(true);
+        setIsPortrait(true); 
       } else {
-        setIsPortrait(false);
+        setIsPortrait(false); 
       }
     };
 
@@ -68,14 +68,15 @@ function PhoneVotingComponent() {
     return () => clearInterval(timer);
   }, [navigate]);
 
-  const handleClick = async (choice) => {
-    console.log(`You clicked ${choice}`);
+  const handleClick = async (choiceId) => {
+    console.log(`You clicked ${choiceId}`);
     try {
-      const response = await submitChoice(choice, 1); // Assuming 1 is the questionId for simplicity
-      console.log('Choice submitted successfully:', response);
+      const userId = 1;  // Assuming 1 is the userId for simplicity
+      const response = await castVote(userId, choiceId);  // Pass userId and choiceId
+      console.log('Vote cast successfully:', response);
       // Add any effect or logic after successful submission
     } catch (error) {
-      console.error('Error submitting choice:', error);
+      console.error('Error casting vote:', error.response ? error.response.data : error.message);
     }
   };
 
@@ -85,13 +86,15 @@ function PhoneVotingComponent() {
         <div className="grid grid-cols-2 gap-4">
           <button
             className="p-4 border rounded-lg hover:bg-yellow-200 cursor-pointer"
-            onClick={() => handleClick('bow')}
+            onClick={() => handleClick(1)}  
+            disabled={loading}
           >
             <img src="src/images/Bow and arrow button.png" alt="Bow and Arrow Button" className="button-img" />
           </button>
           <button
             className="p-4 border rounded-lg hover:bg-yellow-200 cursor-pointer"
-            onClick={() => handleClick('axe')}
+            onClick={() => handleClick(2)}  
+            disabled={loading}
           >
             <img src="src/images/Axe button.png" alt="Axe Button" className="button-img" />
           </button>
