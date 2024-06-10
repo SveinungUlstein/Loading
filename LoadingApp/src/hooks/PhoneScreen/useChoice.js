@@ -9,7 +9,7 @@ const useChoice = () => {
   const getVotesByUserId = async (userId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8080/votes/${userId}`);
+      const response = await axios.get(`http://localhost:8080/choices`);
       setChoices(response.data);
       setLoading(false);
       return response.data;

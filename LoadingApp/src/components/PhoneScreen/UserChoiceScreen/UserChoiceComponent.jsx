@@ -12,7 +12,7 @@ function UserChoiceComponent() {
   const [isPortrait, setIsPortrait] = useState(false);
   const [votes, setVotes] = useState([]);
   const [showPopup, setShowPopup] = useState(false); 
-  const { getVotesByUserId, loading, error } = useChoice(); 
+  const { getVotesByUserId, loading, error } = useChoice();
 
   useEffect(() => {
     const lockOrientation = async () => {
