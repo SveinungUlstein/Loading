@@ -3,15 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import usePlayerUser from '../../../hooks/PhoneScreen/usePlayerUser';
 import '../../../styles/PhoneScreenStyles/NewUserStyle/newUserScreen.css';
 
+// New user component
 function NewUserComponent() {
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
-  const [isPortrait, setIsPortrait] = useState(false);
-  const formRef = useRef(null);
-  const { createPlayerUser, loading, error } = usePlayerUser();
+  const [name, setName] = useState(''); // User name state
+  const [selectedCharacter, setSelectedCharacter] = useState(null); // Selected character state
+  const [isPortrait, setIsPortrait] = useState(false); // Portrait orientation state
+  const formRef = useRef(null); // Form reference
+  const { createPlayerUser, loading, error } = usePlayerUser(); // Custom hook for player user
 
   useEffect(() => {
+    // Function to handle orientation change
     const handleOrientationChange = () => {
       setIsPortrait(window.innerHeight > window.innerWidth);
     };
@@ -26,11 +28,13 @@ function NewUserComponent() {
     };
   }, []);
 
+  // Handle character selection
   const handleCharacterClick = (character) => {
     setSelectedCharacter(character);
     console.log("Character Selected: ", character);
   };
 
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Character Selected with Name: ", selectedCharacter, name);
@@ -48,6 +52,7 @@ function NewUserComponent() {
     }
   };
 
+  // Handle button click to submit form
   const handleButtonClick = () => {
     if (formRef.current) {
       formRef.current.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));

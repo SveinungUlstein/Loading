@@ -3,15 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import useVotes from '../../../hooks/PhoneScreen/useVotes.js';
 import '../../../styles/PhoneScreenStyles/phoneVotingStyles/phonevoting.css'; 
 
+// Phone voting component
 function PhoneVotingComponent() {
   const navigate = useNavigate();
-  const [timeLeft, setTimeLeft] = useState(9);
-  const [orientationLocked, setOrientationLocked] = useState(true);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isPortrait, setIsPortrait] = useState(false);
-  const { castVote, loading, error } = useVotes();
+  const [timeLeft, setTimeLeft] = useState(9); // Timer state
+  const [orientationLocked, setOrientationLocked] = useState(true); // Orientation lock state
+  const [showPopup, setShowPopup] = useState(false); // Popup visibility state
+  const [isPortrait, setIsPortrait] = useState(false); // Portrait orientation state
+  const [hasVoted, setHasVoted] = useState(false); // State to track if user has voted
+  const { castVote, loading, error } = useVotes(); // Custom hook for votes
 
   useEffect(() => {
+    // Function to lock screen orientation to landscape
     const lockOrientation = async () => {
       if (screen.orientation && screen.orientation.lock) {
         try {
@@ -30,11 +33,12 @@ function PhoneVotingComponent() {
       }
     };
 
+    // Function to handle orientation change
     const handleOrientationChange = () => {
       if (window.innerHeight > window.innerWidth) {
-        setIsPortrait(true); 
+        setIsPortrait(true);
       } else {
-        setIsPortrait(false); 
+        setIsPortrait(false);
       }
     };
 
@@ -68,13 +72,16 @@ function PhoneVotingComponent() {
     return () => clearInterval(timer);
   }, [navigate]);
 
+  // Handle vote button click
   const handleClick = async (choiceId) => {
+    if (hasVoted) return; // Prevent multiple votes
+
     console.log(`You clicked ${choiceId}`);
     try {
       const userId = 1;  // Assuming 1 is the userId for simplicity
       const response = await castVote(userId, choiceId);  // Pass userId and choiceId
       console.log('Vote cast successfully:', response);
-      // Add any effect or logic after successful submission
+      setHasVoted(true); // Mark that the user has voted
     } catch (error) {
       console.error('Error casting vote:', error.response ? error.response.data : error.message);
     }
@@ -87,14 +94,14 @@ function PhoneVotingComponent() {
           <button
             className="p-4 border rounded-lg hover:bg-yellow-200 cursor-pointer"
             onClick={() => handleClick(1)}  
-            disabled={loading}
+            disabled={loading || hasVoted} // Disable if loading or user has voted
           >
             <img src="src/images/Bow and arrow button.png" alt="Bow and Arrow Button" className="button-img" />
           </button>
           <button
             className="p-4 border rounded-lg hover:bg-yellow-200 cursor-pointer"
             onClick={() => handleClick(2)}  
-            disabled={loading}
+            disabled={loading || hasVoted} // Disable if loading or user has voted
           >
             <img src="src/images/Axe button.png" alt="Axe Button" className="button-img" />
           </button>

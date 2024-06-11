@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../styles/PhoneScreenStyles/LoadingScreen/Loadingstyles.css';
 
+// Loading screen component
 function LoadingScreen() {
   const navigate = useNavigate();
-  const [isPortrait, setIsPortrait] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false); // Portrait orientation state
 
   useEffect(() => {
+    // Function to handle orientation change
     const handleOrientationChange = () => {
       if (window.innerHeight > window.innerWidth) {
         setIsPortrait(true);

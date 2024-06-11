@@ -3,14 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating-stars-component';
 import useFeedback from '../../../hooks/PhoneScreen/useFeedback.js';
 
+// Phone rating component
 function PhoneRatingComponent() {
   const navigate = useNavigate();
-  const [rating, setRating] = useState(0);
-  const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
-  const [feedback, setFeedback] = useState('');
-  const { submitFeedback, loading, error } = useFeedback();
+  const [rating, setRating] = useState(0); // Rating state
+  const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth); // Portrait orientation state
+  const [feedback, setFeedback] = useState(''); // Feedback text state
+  const { submitFeedback, loading, error } = useFeedback(); // Custom hook for feedback
 
   useEffect(() => {
+    // Function to handle resize and update orientation
     const handleResize = () => {
       setIsPortrait(window.innerHeight > window.innerWidth);
     };
@@ -22,11 +24,13 @@ function PhoneRatingComponent() {
     };
   }, []);
 
+  // Handle rating change
   const handleRatingChange = (newRating) => {
     setRating(newRating);
     console.log(`Selected Rating: ${newRating}`);
   };
 
+  // Handle form submission
   const handleSubmit = async () => {
     console.log(`Submitted Rating: ${rating}`);
     console.log(`Feedback: ${feedback}`);
@@ -39,7 +43,7 @@ function PhoneRatingComponent() {
     try {
       const response = await submitFeedback(rating, feedback);
       console.log('Feedback submitted successfully:', response);
-      navigate('/'); 
+      navigate('/');
     } catch (error) {
       console.error('Error submitting feedback:', error);
     }

@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../styles/PhoneScreenStyles/InstructionStyles/instructionScreen.css';
 
+// Instruction component
 function InstructionComponent() {
   const navigate = useNavigate();
-  const [orientationLocked, setOrientationLocked] = useState(true);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isPortrait, setIsPortrait] = useState(false);
+  const [orientationLocked, setOrientationLocked] = useState(true); // Orientation lock state
+  const [showPopup, setShowPopup] = useState(false); // Popup visibility state
+  const [isPortrait, setIsPortrait] = useState(false); // Portrait orientation state
 
   useEffect(() => {
+    // Function to lock screen orientation to landscape
     const lockOrientation = async () => {
       if (screen.orientation && screen.orientation.lock) {
         try {
@@ -27,6 +29,7 @@ function InstructionComponent() {
       }
     };
 
+    // Function to handle orientation change
     const handleOrientationChange = () => {
       if (window.innerHeight > window.innerWidth) {
         setIsPortrait(true);
