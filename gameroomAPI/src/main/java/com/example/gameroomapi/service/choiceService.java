@@ -18,6 +18,7 @@ public class choiceService {
 
     @Autowired
     private QuestionsRepo questionRepo;
+
     public Optional<Choices> getChoiceById(Long id) {
         return choicesRepo.findById(id);
     }
@@ -28,7 +29,7 @@ public class choiceService {
             choice.setQuestions(questionOptional.get());
             choicesRepo.save(choice);
         } else {
-            throw new IllegalArgumentException("Question with ID " + questionId + " not found");
+            throw new IllegalArgumentException("question not found");
         }
     }
 
