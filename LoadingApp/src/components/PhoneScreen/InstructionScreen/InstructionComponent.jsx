@@ -58,20 +58,20 @@ function InstructionComponent() {
         <div className="flex flex-col items-start space-y-20">
           <div className="flex items-center">
             <img src="/src/images/karakter3.png" alt="Character 1" className="character-img"/>
-            <div className="bubble-left">
+            <div className="bubble-right">
               <p>Valgene du tar underveis i forestillingen vil påvirke historien vår</p>
             </div>
           </div>
           <div className="flex items-center">
             <img src="/src/images/karakter3.png" alt="Character 1" className="character-img"/>
-            <div className="bubble-left">
+            <div className="bubble-right">
               <p>Det valget med mest stemmer bestemmer hva vi gjør</p>
             </div>
           </div>
         </div>
         <div className="flex flex-col items-end space-y-6">
           <div className="flex items-center" style={{ marginTop: '80px' }}>
-            <div className="bubble-right">
+            <div className="bubble-left">
               <p>Du har 30 sekunder på å bestemme deg</p>
             </div>
             <img src="src/images/karakter1.png" alt="Character 2" className="character-img"/>
