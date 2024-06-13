@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating-stars-component';
-import '../../../styles/PhoneScreenStyles/NewUserStyle/newUserScreen.css'; 
+import useFeedback from '../../../hooks/PhoneScreen/useFeedback.js';
 
+// Phone rating component
 function PhoneRatingComponent() {
   const navigate = useNavigate();
-  const [rating, setRating] = useState(0);
-  const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth);
-  const [feedback, setFeedback] = useState('');
+  const [rating, setRating] = useState(0); // Rating state
+  const [isPortrait, setIsPortrait] = useState(window.innerHeight > window.innerWidth); // Portrait orientation state
+  const [feedback, setFeedback] = useState(''); // Feedback text state
+  const { submitFeedback, loading, error } = useFeedback(); // Custom hook for feedback
 
   useEffect(() => {
+    // Function to handle resize and update orientation
     const handleResize = () => {
       setIsPortrait(window.innerHeight > window.innerWidth);
     };
@@ -21,15 +24,29 @@ function PhoneRatingComponent() {
     };
   }, []);
 
+  // Handle rating change
   const handleRatingChange = (newRating) => {
     setRating(newRating);
     console.log(`Selected Rating: ${newRating}`);
   };
 
-  const handleSubmit = () => {
+  // Handle form submission
+  const handleSubmit = async () => {
     console.log(`Submitted Rating: ${rating}`);
     console.log(`Feedback: ${feedback}`);
-    navigate('/'); 
+
+    if (feedback.trim() === '') {
+      console.error('Feedback cannot be empty');
+      return;
+    }
+
+    try {
+      const response = await submitFeedback(rating, feedback);
+      console.log('Feedback submitted successfully:', response);
+      navigate('/');
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+    }
   };
 
   return (
@@ -71,6 +88,8 @@ function PhoneRatingComponent() {
           >
             Submit Rating
           </button>
+          {loading && <p>Submitting...</p>}
+          {error && <p>Error: {error.message}</p>}
         </div>
       )}
     </div>

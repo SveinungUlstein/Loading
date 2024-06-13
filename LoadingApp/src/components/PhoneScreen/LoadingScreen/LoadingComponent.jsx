@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../styles/PhoneScreenStyles/LoadingScreen/Loadingstyles.css';
 
+// Loading screen component
 function LoadingScreen() {
   const navigate = useNavigate();
-  const [isPortrait, setIsPortrait] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false); // Portrait orientation state
 
   useEffect(() => {
+    // Function to handle orientation change
     const handleOrientationChange = () => {
       if (window.innerHeight > window.innerWidth) {
         setIsPortrait(true);
@@ -33,6 +35,20 @@ function LoadingScreen() {
       <div className={`orientation-warning ${isPortrait ? 'visible' : ''}`}>
         <img src="src/images/turnphone.png" alt="Please rotate your device" />
       </div>
+      <button
+        className="small-button"
+        onClick={() => navigate('/phonevoting')}
+        style={{
+          position: 'absolute',
+          bottom: '10px',
+          right: '10px',
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer'
+        }}
+      >
+        <img src="src/images/arrowright.png" alt="Go to new user" style={{ width: '50px', height: '50px' }}/>
+      </button>
     </div>
   );
 }

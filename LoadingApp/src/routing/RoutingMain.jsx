@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LobbyPage from '../pages/BigScreen/LobbyPage';
-import PinPage from '../pages/BigScreen/PinPage';
 import RatingPage from '../pages/BigScreen/RatingPage';
 import ScorePage from '../pages/BigScreen/ScorePage';
 import TotalScore from '../pages/BigScreen/TotalScore';
@@ -23,7 +22,6 @@ function RoutingMain() {
       <Routes>
         {/* BigScreen Pages */}
         <Route path="/lobby" element={<LobbyPage />} />
-        <Route path="/pin" element={<PinPage />} />
         <Route path="/rating" element={<RatingPage />} />
         <Route path="/score" element={<ScorePage />} />
         <Route path="/totalscore" element={<TotalScore />} />

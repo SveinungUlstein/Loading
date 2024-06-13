@@ -16,17 +16,17 @@ public class PlayerUser {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "playerUser_seq_gen")
     @SequenceGenerator(name = "playerUser_seq_gen", sequenceName = "playerUser_seq", allocationSize = 1)
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_id", nullable = true)
     private Long userId;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = true)
     private String userName;
 
-    @Column(name = "avatar", nullable = false)
+    @Column(name = "avatar", nullable = true)
     private int avatar;
 
     @JsonIgnore
-    @Column(name = "cookie", nullable = false)
+    @Column(name = "cookie", nullable = true)
     private String cookie;
 
     @JsonIgnore

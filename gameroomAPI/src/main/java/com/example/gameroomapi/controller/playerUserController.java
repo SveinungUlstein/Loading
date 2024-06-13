@@ -30,16 +30,15 @@ public class playerUserController {
     }
 
     @PostMapping
-    public ResponseEntity<PlayerUser> createPlayerUser(@RequestParam PlayerUser playerUser) {
+    public ResponseEntity<PlayerUser> createPlayerUser(@ModelAttribute PlayerUser playerUser) {
         String generatedCookie = generateCookieValue();
         playerUser.setCookie(generatedCookie);
         PlayerUser createdPlayer = playerUserService.savePlayerUser(playerUser);
         return new ResponseEntity<>(createdPlayer, HttpStatus.CREATED);
     }
 
-
     @PutMapping("/{id}")
-    public ResponseEntity<PlayerUser> updatePlayerUser(@PathVariable Long id, @RequestBody PlayerUser playerUser) {
+    public ResponseEntity<PlayerUser> updatePlayerUser(@PathVariable Long id, @ModelAttribute PlayerUser playerUser) {
         PlayerUser updatedPlayer = playerUserService.updatePlayerUser(id, playerUser);
         return updatedPlayer != null ? ResponseEntity.ok(updatedPlayer) : ResponseEntity.notFound().build();
     }

@@ -1,3 +1,4 @@
+// Import necessary modules and components
 import React from 'react';
 import Title1 from '../../components/Common/Title1';
 import CharacterBox from '../../components/BigScreen/lobbyScreen/CharacterBox';
@@ -7,17 +8,23 @@ import ArrowNavigationRight from '../../components/Common/ArrowNavigationRight';
 import useAvatarCounts from '../../hooks/useAvatarCounts';
 import '../../styles/LobbyStyles/lobbyScreen.css';
 
+// LobbyPage component definition
 const LobbyPage = () => {
-  const avatarCounts = useAvatarCounts();
+  const avatarCounts = useAvatarCounts(); // Fetch avatar counts using custom hook
 
   return (
     <div className="lobby-container grid grid-cols-2 grid-rows-2 gap-4 h-screen p-8">
+     
       <div className="col-span-1 flex justify-center items-center">
         <Title1 />
       </div>
+
+    
       <div className="col-span-1 flex justify-center items-center">
         <QrCode />
       </div>
+
+   
       <div className="col-span-1 flex justify-center items-top">
         <CharacterBox
           imageUrl="/src/images/3Characters.png"
@@ -26,11 +33,15 @@ const LobbyPage = () => {
           avatarNumber3={avatarCounts.avatar3}
         />
       </div>
+
+     
       <div className="col-span-1 flex flex-col justify-center items-center">
         <div className="text-center mt-4"></div>
         <TimerBox timerImageUrl="/src/images/timer.png" />
         <div className="text-center mt-4 timer-seconds"></div>
       </div>
+
+  
       <div className="absolute bottom-4 right-4">
         <ArrowNavigationRight nextPage="/voting" />
       </div>
@@ -38,4 +49,4 @@ const LobbyPage = () => {
   );
 };
 
-export default LobbyPage;
+export default LobbyPage; // Export the component to be used in other parts of the app

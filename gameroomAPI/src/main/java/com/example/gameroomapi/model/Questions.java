@@ -33,8 +33,7 @@ public class Questions {
     @JoinColumn(name = "playId", nullable = true)
     private Play play;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "questions", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "questions", orphanRemoval = true)
     private List<Choices> choices;
 
     public Questions(String questionTxt, byte[] questionImage, int time, Play play){

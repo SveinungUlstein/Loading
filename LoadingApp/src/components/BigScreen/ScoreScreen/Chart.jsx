@@ -1,15 +1,28 @@
+// Import React and the necessary CSS for styling
 import React from 'react';
-import ChartItem from './ChartItem';
 import '../../../styles/ScorePageStyles/chart.css';
 
-const Chart = ({ data, images }) => {
+// Chart component definition
+const Chart = ({ data }) => {
   return (
-    <div className="chart flex justify-around items-end w-full">
+    <div className="chart-container">
       {data.map((item, index) => (
-        <ChartItem key={index} percentage={item.percentage} label={item.label} image={images[index]} />
+
+        // Create a chart bar for each data item
+        <div key={index} className="chart-bar">
+          <div
+            className="chart-value"
+            style={{
+              height: `${item.percentage * 0.5}vh`, 
+            }}
+          >
+            {item.label} 
+          </div>
+          <div className="chart-label">{item.choiceTxt}</div> 
+        </div>
       ))}
     </div>
   );
 };
 
-export default Chart;
+export default Chart; // Export the component to be used in other parts of the app

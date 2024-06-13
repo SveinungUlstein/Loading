@@ -8,8 +8,8 @@
   }
   
   .character-image {
-    width: 50vh;  /* Adjust size as needed */
-    height: 50vh; /* Adjust size as needed */
+    width: 50vh;  
+    height: 50vh; 
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -19,11 +19,11 @@
   .character-numbers {
     display: flex;
     justify-content: space-around;
-    width: 100%; /* Adjust width as needed */
+    width: 100%; 
   }
   
   .character-number {
     font-size: 4rem;
     font-weight: bold;
-    color: #4E3B2B; /* Dark brown color */
+    color: #4E3B2B;
   }
