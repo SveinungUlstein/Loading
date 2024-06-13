@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import useVotes from '../../../hooks/PhoneScreen/useVotes.js';
 import '../../../styles/PhoneScreenStyles/phoneVotingStyles/phonevoting.css'; 
 
-// Phone voting component
 function PhoneVotingComponent() {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(9); // Timer state
@@ -82,6 +81,9 @@ function PhoneVotingComponent() {
       const response = await castVote(userId, choiceId);  // Pass userId and choiceId
       console.log('Vote cast successfully:', response);
       setHasVoted(true); // Mark that the user has voted
+      
+      // Save user's choice to local storage
+      localStorage.setItem('userChoice', JSON.stringify({ choiceId, choiceTxt: choiceId === 1 ? 'øks' : 'bue' }));
     } catch (error) {
       console.error('Error casting vote:', error.response ? error.response.data : error.message);
     }
@@ -96,14 +98,14 @@ function PhoneVotingComponent() {
             onClick={() => handleClick(1)}  
             disabled={loading || hasVoted} // Disable if loading or user has voted
           >
-            <img src="src/images/Bow and arrow button.png" alt="Bow and Arrow Button" className="button-img" />
+            <img src="src/images/Axe button.png" alt="Axe Button" className="button-img" />
           </button>
           <button
             className="p-4 border rounded-lg hover:bg-yellow-200 cursor-pointer"
             onClick={() => handleClick(2)}  
             disabled={loading || hasVoted} // Disable if loading or user has voted
           >
-            <img src="src/images/Axe button.png" alt="Axe Button" className="button-img" />
+            <img src="src/images/Bow and arrow button.png" alt="Bow and Arrow Button" className="button-img" />
           </button>
         </div>
         <p className="mt-4 text-lg text-yellow">{timeLeft} sekunder igjen å stemme...</p>
