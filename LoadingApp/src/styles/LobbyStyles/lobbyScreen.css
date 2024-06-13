@@ -1,9 +1,12 @@
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* Import TailwindCSS base, components, and utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Apply font family and reset margins and paddings */
 html, body {
   margin: 0;
   padding: 0;
@@ -12,40 +15,48 @@ html, body {
   font-family: 'VT323', monospace;
 }
 
+/* Ensure root element covers full height */
 #root {
   height: 100%;
 }
 
-
+/* Style for title container */
 .title-container {
   @apply flex justify-center items-center w-full h-screen bg-cream;
 }
 
+/* Style for title text */
 .title-text {
-  @apply text-mustard font-vt323 font-bold;
+  @apply text-mustard font-bold;
+  font-family: 'VT323', monospace;
   font-size: 10rem;
 }
 
-
+/* Style for lobby container */
 .lobby-container {
-  @apply bg-cream h-screen grid grid-cols-2 grid-rows-2 gap-4 p-4 font-vt323;
+  @apply bg-cream h-screen grid grid-cols-2 grid-rows-2 gap-4 p-4;
+  font-family: 'VT323', monospace;
 }
 
+/* Style for timer section */
 .timer-section {
   @apply flex flex-col items-center;
 }
 
+/* Style for timer text */
 .timer-text {
   @apply text-brown text-center text-3xl font-bold;
 }
 
+/* Style for timer seconds */
 .timer-seconds {
   @apply text-brown text-center text-7xl font-bold mt-2;
 }
 
+/* Style for timer image */
 .timer-image {
-  width: 10vh;  /* Adjust size as needed */
-  height: 10vh; /* Adjust size as needed */
+  width: 10vh;
+  height: 10vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

@@ -1,12 +1,12 @@
 .score-container {
-  background-color: #f5f5dc; /* Background color */
+  background-color: #f5f5dc; 
 }
 
 .chart-container {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  height: 50vh; /* Ensure the container has a fixed height */
+  height: 50vh; 
   width: 100%;
   padding: 20px;
 }

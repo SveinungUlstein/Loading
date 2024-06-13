@@ -1,6 +1,8 @@
+// Import necessary modules and components
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// TestPage component definition
 function TestPage() {
   return (
     <div className="flex items-center justify-center h-screen bg-black overflow-hidden">
@@ -37,4 +39,4 @@ function TestPage() {
   );
 }
 
-export default TestPage;
+export default TestPage; // Export the component to be used in other parts of the app

@@ -3,7 +3,7 @@
   }
   
   .image-section img {
-    max-height: 20vh; /* Adjust based on your needs */
+    max-height: 20vh; 
   }
   
   .some-component {
@@ -24,18 +24,18 @@
   }
   
   .instagram-icon {
-    height: 9rem; /* Adjust size as needed */
-    width: 12rem; /* Adjust size as needed */
+    height: 9rem; 
+    width: 12rem; 
 
   }
   
   .text-section {
     text-align: center;
     padding: 2rem;
-    color: #4E3B2B; /* Brown color */
+    color: #4E3B2B; 
   }
   
   .text-section p {
-    font-size: 7vh; /* Adjust the size as needed */
+    font-size: 7vh; 
   }
   

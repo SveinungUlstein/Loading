@@ -1,12 +1,14 @@
+// Import React and useNavigate hook from react-router-dom to handle navigation
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function AdminReportPage() {
-  const navigate = useNavigate();
+function AdminReportComponent() {
+  const navigate = useNavigate(); // Initialize navigate to handle navigation programmatically
 
   return (
     <div className="flex flex-col h-screen bg-gray-100 text-gray-800">
       <header className="flex items-center justify-between p-4 bg-blue-600 text-white">
+        {/* Header section with a title and logout button */}
         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
         <button
           className="px-4 py-2 bg-red-500 rounded hover:bg-red-700"
@@ -17,6 +19,7 @@ function AdminReportPage() {
       </header>
 
       <div className="flex flex-grow overflow-hidden">
+        {/* Side navigation bar */}
         <nav className="flex-shrink-0 w-64 p-4 bg-white border-r">
           <ul className="space-y-2">
             <li>
@@ -46,6 +49,7 @@ function AdminReportPage() {
           </ul>
         </nav>
 
+        {/* Main content area */}
         <main className="flex-grow p-6 overflow-auto">
           <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md space-y-4 p-6">
             <h2 className="text-2xl font-bold text-gray-900">Admin Reports Page</h2>
@@ -63,4 +67,4 @@ function AdminReportPage() {
   );
 }
 
-export default AdminReportPage;
+export default AdminReportComponent; // Export the component to be used in other parts of the app

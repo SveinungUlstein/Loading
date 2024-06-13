@@ -2,9 +2,9 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  font-size: 24px; /* Increase the font size */
-  background-color: transparent; /* Make the button background transparent */
-  border: none; /* Remove the border */
+  font-size: 24px; 
+  background-color: transparent; 
+  border: none; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,10 +12,10 @@
 }
 
 .next-button img {
-  width: 50px; /* Adjust the image size if needed */
-  margin-right: 8px; /* Space between the image and the text */
+  width: 50px; 
+  margin-right: 8px; 
 }
 
 .next-button:hover {
-  opacity: 0.8; /* Add a hover effect */
+  opacity: 0.8; 
 }

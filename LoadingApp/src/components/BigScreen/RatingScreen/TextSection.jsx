@@ -1,4 +1,4 @@
-
+//Textsection component
 import React from 'react';
 
 const TextSection = () => {

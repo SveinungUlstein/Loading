@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function AdminLibraryPage() {
+function AdminLibraryComponent() {
   const navigate = useNavigate();
 
   return (
@@ -63,4 +63,4 @@ function AdminLibraryPage() {
   );
 }
 
-export default AdminLibraryPage;
+export default AdminLibraryComponent;

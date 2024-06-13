@@ -5,15 +5,15 @@
 }
 
 .bg-light-teal {
-  background-color: rgb(26, 142, 143); /* #1A8E8F */
+  background-color: rgb(26, 142, 143); 
 }
 
 .bg-dark-brown {
-  background-color: rgb(96, 80, 63); /* #60503F */
+  background-color: rgb(96, 80, 63);
 }
 
 .bg-light-bg {
-  background-color: rgb(255, 239, 213); /* Light background color similar to prototype */
+  background-color: rgb(255, 239, 213); 
 }
 
 html, body, #root {
@@ -40,7 +40,7 @@ html, body, #root {
   left: 100%;
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent transparent rgb(26, 142, 143); /* Same as bg-light-teal */
+  border-color: transparent transparent transparent rgb(26, 142, 143); 
 }
 
 .bubble-right {
@@ -54,31 +54,31 @@ html, body, #root {
   right: 100%;
   border-width: 10px;
   border-style: solid;
-  border-color: transparent rgb(96, 80, 63) transparent transparent; /* Same as bg-dark-brown */
+  border-color: transparent rgb(96, 80, 63) transparent transparent; 
 }
 
 .character-img {
-  width: 100px; /* Make characters larger */
-  height: 100px; /* Consistent height */
+  width: 100px; 
+  height: 100px; 
 }
 
 .divider {
   width: 2px;
   height: 100%;
-  background-color: #e0e0e0; /* Light gray divider */
+  background-color: #e0e0e0; 
   margin: 0 20px;
 }
 
 input::placeholder {
-  color: #888; /* Placeholder text color */
+  color: #888; 
 }
 
 .bg-dark {
-  background-color: rgb(77, 59, 43); /* Dark background for the outer container */
+  background-color: rgb(77, 59, 43); 
 }
 
 .bg-light-bg {
-  background-color: rgb(255, 239, 213); /* Background color for the inner container */
+  background-color: rgb(255, 239, 213); 
 }
 
 input {
@@ -95,9 +95,9 @@ button {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  font-size: 24px; /* Increase the font size */
-  background-color: transparent; /* Make the button background transparent */
-  border: none; /* Remove the border */
+  font-size: 24px; 
+  background-color: transparent; 
+  border: none; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,12 +105,12 @@ button {
 }
 
 .next-button img {
-  width: 70px; /* Adjust the image size if needed */
-  margin-right: 8px; /* Space between the image and the text */
+  width: 70px; 
+  margin-right: 8px; 
 }
 
 .next-button:hover {
-  opacity: 0.8; /* Add a hover effect */
+  opacity: 0.8; 
 }
 
 .orientation-warning {
@@ -119,16 +119,16 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.5); /* Light color with higher transparency */
+  background: rgba(255, 255, 255, 0.5); 
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999; /* Ensure it appears above all other content */
-  visibility: hidden; /* Hidden by default */
+  z-index: 9999; 
+  visibility: hidden; 
 }
 
 .orientation-warning.visible {
-  visibility: visible; /* Make visible when in portrait mode */
+  visibility: visible; 
 }
 
 .orientation-warning img {
